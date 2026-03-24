@@ -1,5 +1,4 @@
 import React from 'react';
-import wingsImg from '../assets/wings_premium.png';
 import './About.css';
 
 const About = () => {
@@ -9,15 +8,15 @@ const About = () => {
         
         {/* Left Side: Overlapping Portraits */}
         <div className="about-visuals">
-          <div className="image-wrapper founder-1">
+          <div className="founder-1">
             {/* Female Placeholder */}
             <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Heenaa Panchal" />
           </div>
-          <div className="image-wrapper founder-2">
+          <div className="founder-2">
             {/* Male Placeholder */}
             <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Co-Founder" />
             <div className="experience-badge">
-              <span className="years">12+</span>
+              <span className="years">5+</span>
               <span className="text">Years of<br/>Design Synergy</span>
             </div>
           </div>
@@ -45,8 +44,6 @@ const About = () => {
               "We believe that true luxury lies at the intersection of absolute comfort and breathtaking personalization. By blending masculine architectural precision with warm, feminine stylistic grace, we create masterpieces deeply connected to the families who inhabit them."
             </p>
           </div>
-
-          <img src={wingsImg} alt="Wings Design Signature" className="founders-signature" />
         </div>
 
       </div>
