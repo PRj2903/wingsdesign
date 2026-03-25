@@ -25,9 +25,23 @@ function App() {
   }, []);
 
   // Complex highly layered actual wing array for logo
-  // Official logo for navbar and drawer
+  // Official SVG logo for navbar and drawer (matching the intro style)
   const LogoOfficial = ({ className }) => (
-    <img src="/logo.png" alt="Wings Design Logo" className={className} style={{ objectFit: 'contain' }} />
+    <svg className={className} viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="premiumGoldNav" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F5E6AD" />
+          <stop offset="50%" stopColor="#C49A45" />
+          <stop offset="100%" stopColor="#846625" />
+        </linearGradient>
+      </defs>
+      <g>
+        <path d="M68 60 C50 45 30 25 10 15 C20 22 35 35 55 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
+        <path d="M65 60 C45 42 22 20 5 15 C15 22 35 40 50 56 Z" fill="url(#premiumGoldNav)" />
+        <path d="M72 60 C90 45 110 25 130 15 C120 22 105 35 85 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
+        <path d="M75 60 C95 42 118 20 135 15 C125 22 105 40 90 56 Z" fill="url(#premiumGoldNav)" />
+      </g>
+    </svg>
   );
 
   // SVG tracing logo for introduction
@@ -67,9 +81,14 @@ function App() {
         
         <nav className="navbar">
           <div className="logo">
-            <LogoOfficial className="nav-wings-icon" />
-            <div className="logo-text">
-              <h2>Wings Design</h2>
+            <div className="logo-content">
+              <LogoOfficial className="nav-wings-icon" />
+              <div className="logo-text">
+                <h2>
+                  <span className="wings-text">Wings</span>
+                  <span className="design-text">Design</span>
+                </h2>
+              </div>
             </div>
           </div>
           <ul className="nav-links">
