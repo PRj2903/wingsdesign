@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" width="100%" height="100%">
+  <defs>
+    <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#2a251e" />
+      <stop offset="100%" stop-color="#14120e" />
+    </radialGradient>
+
+    <linearGradient id="outerGradientLeft" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#fff5cc" />
+      <stop offset="100%" stop-color="#ffcc66" />
+    </linearGradient>
+    
+    <linearGradient id="outerGradientRight" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" />
+      <stop offset="40%" stop-color="#fff5cc" />
+      <stop offset="100%" stop-color="#ffcc66" />
+    </linearGradient>
+
+    <linearGradient id="innerGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffc800" />
+      <stop offset="100%" stop-color="#d97700" />
+    </linearGradient>
+
+    <filter id="heavyGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="25" result="blur1" />
+      <feGaussianBlur in="SourceGraphic" stdDeviation="50" result="blur2" />
+      <feMerge>
+        <feMergeNode in="blur2" />
+        <feMergeNode in="blur1" />
+      </feMerge>
+    </filter>
+
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="8" />
+    </filter>
+  </defs>
+
+  <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+  <g filter="url(#heavyGlow)" fill="#ff9900" opacity="0.8">
+    <path d="M 70 170 Q 280 340 485 490 L 340 430 Q 230 350 70 170 Z" />
+    <path d="M 930 170 Q 720 340 515 490 L 660 430 Q 770 350 930 170 Z" />
+    <path d="M 230 140 Q 350 300 470 420 Q 380 270 230 140 Z" />
+    <path d="M 770 140 Q 650 300 530 420 Q 620 270 770 140 Z" />
+  </g>
+
+  <g filter="url(#softGlow)" fill="#ffcc00" opacity="0.9">
+    <path d="M 70 170 Q 280 340 485 490 L 340 430 Q 230 350 70 170 Z" />
+    <path d="M 930 170 Q 720 340 515 490 L 660 430 Q 770 350 930 170 Z" />
+  </g>
+
+  <g>
+    <path d="M 230 140 Q 350 300 470 420 Q 380 270 230 140 Z" fill="url(#innerGradient)" />
+    
+    <path d="M 770 140 Q 650 300 530 420 Q 620 270 770 140 Z" fill="url(#innerGradient)" />
+
+    <path d="M 70 170 Q 280 340 485 490 L 340 430 Q 230 350 70 170 Z" fill="url(#outerGradientLeft)" />
+    
+    <path d="M 930 170 Q 720 340 515 490 L 660 430 Q 770 350 930 170 Z" fill="url(#outerGradientRight)" />
+  </g>
+</svg>

@@ -10,11 +10,11 @@ const About = () => {
         <div className="about-visuals">
           <div className="founder-1">
             {/* Female Placeholder */}
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80" alt="Heenaa Panchal" />
+            <img src="/female.jpeg" alt="Heenaa Panchal" />
           </div>
           <div className="founder-2">
             {/* Male Placeholder */}
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&q=80" alt="Co-Founder" />
+            <img src="/male.jpeg" alt="Sanket Panchal" />
             
             <div className="experience-badge">
               <span className="years">5+</span>
