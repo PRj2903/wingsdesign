@@ -5,14 +5,11 @@
   --primary: #C49A45; /* Golden primary accent */
   --primary-hover: #A67C2F;
   --primary-dark: #493C2F; /* Deep bronze */
-  
   --bg-color: #FAFAFA; /* True paper white */
-  --text-main: #2A2624; 
-  --text-muted: #6B6158; 
-  
-  --glass-bg: rgba(255, 255, 255, 0.9); 
+  --text-main: #2A2624;
+  --text-muted: #6B6158;
+  --glass-bg: rgba(255, 255, 255, 0.9);
   --glass-border: rgba(196, 154, 69, 0.25);
-  
   --font-sans: 'Jost', sans-serif;
   --font-serif: 'Cormorant Garamond', serif;
 }
@@ -38,9 +35,8 @@ body, html {
   position: relative;
 }
 
-/* ==================================
-   ELEGANT FLUENT TRACE INTRO (DARK "WOW" THEME)
-=================================== */
+/* ================================== ELEGANT FLUENT TRACE INTRO (DARK "WOW" THEME) =================================== */
+
 .intro-master {
   position: fixed;
   inset: 0;
@@ -177,9 +173,8 @@ body, html {
   }
 }
 
-/* ==================================
-   MAIN CONTENT
-=================================== */
+/* ================================== MAIN CONTENT =================================== */
+
 .main-content {
   opacity: 0.1;
   transform: scale(0.97);
@@ -194,8 +189,6 @@ body, html {
   opacity: 1;
   transform: scale(1);
 }
-
-
 
 /* Navbar */
 .navbar {
@@ -271,16 +264,15 @@ body, html {
   color: var(--primary-dark);
 }
 
-/* ==================================
-   MOBILE MENU DRAWER
-=================================== */
+/* ================================== MOBILE MENU DRAWER =================================== */
+
 .mobile-drawer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: var(--bg-color); 
+  background: var(--bg-color);
   z-index: 2000;
   display: flex;
   flex-direction: column;
@@ -557,8 +549,6 @@ body, html {
   background: linear-gradient(180deg, transparent, var(--glass-border), transparent);
 }
 
-
-
 .glass-card {
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
@@ -566,8 +556,7 @@ body, html {
   padding: 1.5rem 2rem;
   border-radius: 16px;
   border: 1px solid rgba(255, 255, 255, 1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05),
-              0 0 20px rgba(196, 154, 69, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05), 0 0 20px rgba(196, 154, 69, 0.1);
   z-index: 3;
   animation: float 8s ease-in-out infinite;
 }
@@ -621,11 +610,8 @@ body, html {
   opacity: 0.05;
 }
 
+/* ================================== FLOATING WHATSAPP BUTTON =================================== */
 
-
-/* ==================================
-   FLOATING WHATSAPP BUTTON
-=================================== */
 .floating-whatsapp {
   position: fixed;
   right: 35px;
@@ -678,49 +664,21 @@ body, html {
 
 /* Responsive */
 @media (max-width: 1200px) {
-  .hero-title {
-    font-size: 3.8rem;
-  }
-  .nav-links {
-    gap: 2rem;
-  }
+  .hero-title { font-size: 3.8rem; }
+  .nav-links { gap: 2rem; }
 }
 
 @media (max-width: 992px) {
-  .hero {
-    flex-direction: column;
-    padding-top: 2rem;
-    text-align: center;
-  }
-  .hero-content {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .hero-title {
-    font-size: 3.5rem;
-  }
-  .hero-description {
-    margin: 0 auto 3rem;
-    max-width: 90%;
-  }
-  .hero-actions {
-    justify-content: center;
-  }
-  .hero-stats {
-    justify-content: center;
-  }
-  .hero-stats::before {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .nav-links {
-    display: none;
-  }
-  .mobile-menu-icon {
-    display: block;
-  }
+  .hero { flex-direction: column; padding-top: 2rem; text-align: center; }
+  .hero-content { margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .hero-title { font-size: 3.5rem; }
+  .hero-description { margin: 0 auto 3rem; max-width: 90%; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-stats::before { left: 50%; transform: translateX(-50%); }
+
+  .nav-links { display: none; }
+  .mobile-menu-icon { display: block; }
   .hero-floating-card {
     position: relative;
     right: auto;
@@ -729,126 +687,45 @@ body, html {
     margin-top: 3rem;
     margin-bottom: 2rem;
   }
-  .intro-text {
-    font-size: 2.5rem;
-  }
-  .projects {
-    padding: 4rem 5%;
-  }
-  .section-title {
-    font-size: 2.5rem;
-  }
-  .project-card {
-    flex: 0 0 85vw;
-    height: 450px;
-  }
-  .section-header {
-    flex-direction: column;
-    align-items: center !important;
-  }
-  .header-text {
-    text-align: center !important;
-    margin-bottom: 2rem;
-  }
-  .about-container {
-    flex-direction: column;
-    gap: 4rem;
-  }
-  .about-visuals {
-    width: 100%;
-    max-width: 600px;
-  }
+
+  .intro-text { font-size: 2.5rem; }
+  .projects { padding: 4rem 5%; }
+  .section-title { font-size: 2.5rem; }
+  .project-card { flex: 0 0 85vw; height: 450px; }
+  .section-header { flex-direction: column; align-items: center !important; }
+  .header-text { text-align: center !important; margin-bottom: 2rem; }
+  .about-container { flex-direction: column; gap: 4rem; }
+  .about-visuals { width: 100%; max-width: 600px; }
 }
 
 @media (max-width: 768px) {
-  .floating-whatsapp {
-    right: 20px;
-    bottom: 20px;
-    width: 50px;
-    height: 50px;
-  }
-  .whatsapp-icon {
-    width: 28px;
-    height: 28px;
-  }
-  .hero-title {
-    font-size: 2.8rem;
-  }
-  .hero-stats {
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-  .stat h3 {
-    font-size: 1.8rem;
-  }
-  .badge {
-    font-size: 0.75rem;
-  }
-  .intro-text {
-    font-size: 1.8rem;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  .hero-description {
-    font-size: 1rem;
-  }
-  .logo-text h2 {
-    font-size: 1.3rem;
-  }
-  .hero-bg-overlay {
-    background: linear-gradient(to right, rgba(250, 250, 250, 0.98) 0%, rgba(250, 250, 250, 0.85) 60%, transparent 100%);
-  }
-  .about-visuals {
-    height: 500px;
-  }
-  .experience-badge {
-    bottom: 20px;
-    left: 20px;
-  }
-  .founders-names h3 {
-    font-size: 1.8rem;
-  }
+  .floating-whatsapp { right: 20px; bottom: 20px; width: 50px; height: 50px; }
+  .whatsapp-icon { width: 28px; height: 28px; }
+  .hero-title { font-size: 2.8rem; }
+  .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+  .stat h3 { font-size: 1.8rem; }
+  .badge { font-size: 0.75rem; }
+  .intro-text { font-size: 1.8rem; }
+  .section-title { font-size: 2rem; }
+  .hero-description { font-size: 1rem; }
+  .logo-text h2 { font-size: 1.3rem; }
+  .hero-bg-overlay { background: linear-gradient(to right, rgba(250, 250, 250, 0.98) 0%, rgba(250, 250, 250, 0.85) 60%, transparent 100%); }
+  .about-visuals { height: 500px; }
+  .experience-badge { bottom: 20px; left: 20px; }
+  .founders-names h3 { font-size: 1.8rem; }
 }
 
 @media (max-width: 480px) {
-  .hero-title {
-    font-size: 2.2rem;
-  }
-  .hero-stats {
-    gap: 1rem;
-  }
-  .stat h3 {
-    font-size: 1.5rem;
-  }
-  .stat p {
-    font-size: 0.7rem;
-    letter-spacing: 1px;
-  }
-  .hero-description {
-    max-width: 95%;
-  }
-  .project-card {
-    flex: 0 0 90vw;
-    height: 400px;
-  }
-  .projects {
-    padding: 3rem 5%;
-  }
-  .carousel-btn {
-    width: 40px;
-    height: 40px;
-  }
-  .project-name {
-    font-size: 1.8rem;
-  }
-  .about-section {
-    padding: 4rem 5%;
-  }
-  .experience-badge .years {
-    font-size: 2rem;
-  }
-  .experience-badge .text {
-    font-size: 0.65rem;
-  }
+  .hero-title { font-size: 2.2rem; }
+  .hero-stats { gap: 1rem; }
+  .stat h3 { font-size: 1.5rem; }
+  .stat p { font-size: 0.7rem; letter-spacing: 1px; }
+  .hero-description { max-width: 95%; }
+  .project-card { flex: 0 0 90vw; height: 400px; }
+  .projects { padding: 3rem 5%; }
+  .carousel-btn { width: 40px; height: 40px; }
+  .project-name { font-size: 1.8rem; }
+  .about-section { padding: 4rem 5%; }
+  .experience-badge .years { font-size: 2rem; }
+  .experience-badge .text { font-size: 0.65rem; }
 }

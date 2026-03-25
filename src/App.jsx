@@ -101,7 +101,7 @@ function App() {
         </nav>
 
         {/* Premium Full-Screen Mobile Drawer */}
-        <div className={`mobile-drawer ${isMobileMenuOpen ? 'open' : ''}`}>
+        <div className={`mobile-drawer ${isMobileMenuOpen ? 'is-open' : ''}`}>
           <div className="drawer-header">
             <LogoWing className="drawer-logo" />
             <div className="close-btn" onClick={toggleMobileMenu}>
@@ -184,4 +184,3 @@ function App() {
 }
 
 export default App;
-
