@@ -1,127 +1,168 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './Services.css';
 
+const servicesData = [
+  {
+    number: '01',
+    title: 'Curated Residential',
+    description: 'Bespoke living experiences crafted for villas, penthouses, and refined private residences.',
+    features: ['Architectural Visualization', 'Global Sourcing', 'Custom Millwork'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M3 21H21M5 21V8L12 3L19 8V21M9 21V14H15V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    number: '02',
+    title: 'Turnkey Solutions',
+    description: 'Flawless design-to-delivery management, ensuring a seamless journey from blueprint to reality.',
+    features: ['Project Management', 'Structural Audits', 'Vendor Integration'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    number: '03',
+    title: 'Commercial Design',
+    description: 'Transformative corporate environments that mirror high-end brand identities and visionary workspaces.',
+    features: ['Corporate Branding', 'Ergonomic Luxury', 'Sustainable Tech'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M19 21V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V21M3 21H21M9 7H10M9 11H10M9 15H10M14 7H15M14 11H15M14 15H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    number: '04',
+    title: '3D Visualization',
+    description: 'Hyper-realistic cinematic renderings that allow you to walk through your future home before it exists.',
+    features: ['VR Walkthroughs', 'Lighting Simulation', 'Material Accuracy'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 16V8L12 3L3 8V16L12 21L21 16Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M3 8L12 13L21 8M12 21V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1541888941259-792739460272?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    number: '05',
+    title: 'Bespoke Furniture',
+    description: 'One-of-a-kind statement pieces that bridge the gap between architectural art and utilitarian function.',
+    features: ['Hand-Carved Veneers', 'Exclusive Fabrics', 'Signature Metals'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M4 18V6H12M4 10H12M20 18V12C20 10.8954 19.1046 10 18 10H12M12 10V18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1000&auto=format&fit=crop'
+  },
+  {
+    number: '06',
+    title: 'Landscape Mastery',
+    description: 'Lush, architectural outdoor spaces designed to be a natural extension of your indoor luxury.',
+    features: ['Zen Gardens', 'Infinity Poolscapes', 'Sculptural Lighting'],
+    icon: (
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 3L4 9V21H20V9L12 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M12 11V15M9 13H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </svg>
+    ),
+    bgGlimpse: 'https://images.unsplash.com/photo-1558603668-6570496b66f8?q=80&w=1000&auto=format&fit=crop'
+  }
+];
+
 const Services = () => {
-    const serviceList = [
-        {
-            number: '01',
-            title: 'Residential Interior',
-            description: 'Customized designs for villas, penthouses, and luxury apartments that reflect your unique lifestyle.',
-            features: ['Luxury Living & Dining', 'Designer Bedrooms', 'Modular Kitchens', 'Smart Home Setup'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                </svg>
-            )
-        },
-        {
-            number: '02',
-            title: 'Commercial Spaces',
-            description: "Inspiring environments that boost productivity and resonate with your brand's unique corporate identity.",
-            features: ['Modern Office Layouts', 'High-end Retail Outlets', 'Boutique Hotels', 'Restaurant Interiors'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-                    <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                </svg>
-            )
-        },
-        {
-            number: '03',
-            title: 'Turnkey Solutions',
-            description: 'Seamless "Design to Delivery" project management ensuring a stress-free experience for our premium clients.',
-            features: ['Execution & Supervision', 'Material Procurement', 'Vendor Coordination', 'Quality Assurance'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path>
-                    <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
-                    <line x1="12" y1="22.08" x2="12" y2="12"></line>
-                </svg>
-            )
-        },
-        {
-            number: '04',
-            title: '3D Visualization',
-            description: 'Advanced photorealistic renderings and VR tours that allow you to step into your space before construction.',
-            features: ['4K Photorealistic Views', 'VR Walkthrough Tours', '3D Floor Planning', 'Lighting Simulation'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <circle cx="12" cy="12" r="10"></circle>
-                    <line x1="2" y1="12" x2="22" y2="12"></line>
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-            )
-        },
-        {
-            number: '05',
-            title: 'Custom Furniture',
-            description: 'Bespoke artisanal pieces crafted to perfectly complement the aesthetics of your interior design.',
-            features: ['Custom Upholstery', 'Premium Woodwork', 'Signature Designs', 'Ergonomic Excellence'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M4 2v20"></path>
-                    <path d="M20 2v20"></path>
-                    <path d="M2 13h20"></path>
-                    <path d="M7 2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H7z"></path>
-                </svg>
-            )
-        },
-        {
-            number: '06',
-            title: 'Landscape Design',
-            description: 'Integrating nature with luxury architecture through elegant terrace gardens and landscape features.',
-            features: ['Terrace Architecture', 'Water Features', 'Mood Lighting', 'Green Lounging'],
-            icon: (
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 3v19"></path>
-                    <path d="M5 20c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                    <path d="M15 20c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                    <path d="M5 14c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                    <path d="M15 14c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                    <path d="M5 8c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                    <path d="M15 8c0-1.66 2-3 2-3s2 1.34 2 3"></path>
-                </svg>
-            )
-        }
-    ];
+  const sectionRef = useRef(null);
 
-    return (
-        <section className="services-section" id="services">
-            <div className="services-container">
-                <div className="services-header">
-                    <span className="services-badge">What We Offer</span>
-                    <h2 className="services-title">Bespoke <span>Interior</span> Specialization</h2>
-                    <p className="services-subtitle">
-                        From initial concept to luxury completion, we provide a full spectrum of design and execution services tailored to your highest aspirations.
-                    </p>
-                </div>
-
-                <div className="services-grid">
-                    {serviceList.map((service, index) => (
-                        <div className="service-card" key={index}>
-                            <span className="service-num-decor">{service.number}</span>
-                            <div className="service-icon-box">
-                                {service.icon}
-                            </div>
-                            <h3>{service.title}</h3>
-                            <p>{service.description}</p>
-                            <ul className="service-features-grid">
-                                {service.features.map((feature, fIndex) => (
-                                    <li key={fIndex}>
-                                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                                            <polyline points="20 6 9 17 4 12"></polyline>
-                                        </svg>
-                                        {feature}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('services-revealed');
+          }
+        });
+      },
+      { threshold: 0.1 }
     );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('footer'); // or wherever contact is
+    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  return (
+    <section className="services-section" id="services" ref={sectionRef}>
+      {/* Background Depth Elements */}
+      <div className="services-bg-texture"></div>
+      <div className="services-bg-gradient"></div>
+      
+      <div className="services-container">
+        <header className="services-header">
+          <div className="services-label stagger-1">Signature Expertise</div>
+          <h2 className="services-title stagger-2">Curating <span className="gold-text">Timeless Environments</span></h2>
+          <div className="header-line stagger-3"></div>
+        </header>
+
+        <div className="services-grid">
+          {servicesData.map((service, index) => (
+            <div 
+              key={index} 
+              className={`service-card stagger-${index + 1}`}
+            >
+              <div className="card-glimpse" style={{ backgroundImage: `url(${service.bgGlimpse})` }}></div>
+              <div className="service-number-watermark">{service.number}</div>
+              
+              <div className="service-card-content">
+                <div className="service-icon-box">
+                  {service.icon}
+                </div>
+                
+                <h3 className="service-card-title">{service.title}</h3>
+                <p className="service-card-desc">{service.description}</p>
+                
+                <ul className="service-feature-list">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx}>
+                      <span className="gold-dot"></span> {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="card-border-glow"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to Actions */}
+        <div className="services-ctas stagger-8">
+          <button className="cta-button primary-cta" onClick={() => window.location.href="#projects"}>
+            Experience Our Portfolio
+          </button>
+          <button 
+            className="cta-button secondary-cta" 
+            onClick={() => window.open('https://wa.me/917990207778', '_blank')}
+          >
+            Request Private Consultation
+          </button>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Services;

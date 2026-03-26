@@ -101,15 +101,26 @@ const Footer = () => {
                         <ul className="footer-contact-info">
                             <li>
                                 <FaMapMarkerAlt />
-                                <span>306-307 Galleria Business Hub, <br/> Opp. Shell Petrol Pump, <br/> Adajan - Hazira Road, Surat, Gujarat.</span>
+                                <a 
+                                    href="https://www.google.com/maps/search/?api=1&query=6Q69%2B73G+Gaurav+Path+Road+Surat" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer"
+                                    style={{ color: 'inherit', textDecoration: 'none' }}
+                                >
+                                    <span>109, Arihant Dreams, Opp Croma, <br/> Gaurav Path Road, <br/> Surat - 395009</span>
+                                </a>
                             </li>
                             <li>
                                 <FaPhoneAlt />
-                                <span>+91 79902 07778</span>
+                                <a href="tel:+917990207778" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                    <span>+91 79902 07778</span>
+                                </a>
                             </li>
                             <li>
                                 <FaEnvelope />
-                                <span>info@wingsdesign.studio</span>
+                                <a href="mailto:info@wingsdesign.studio" style={{ color: 'inherit', textDecoration: 'none' }}>
+                                    <span>info@wingsdesign.studio</span>
+                                </a>
                             </li>
                         </ul>
                     </div>
