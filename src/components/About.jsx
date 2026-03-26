@@ -1,51 +1,97 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import './About.css';
 
 const About = () => {
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-active');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="about-section" id="about">
+    <section className="about-section" id="about" ref={sectionRef}>
+      {/* Background Texture Overlay */}
+      <div className="about-texture-overlay"></div>
+      
       <div className="about-container">
         
-        {/* Left Side: Overlapping Portraits */}
-        <div className="about-visuals">
-          <div className="founder-1">
-            {/* Female Placeholder */}
-            <img src="/female.jpeg" alt="Heenaa Panchal" />
+        {/* Modern Broken Grid Layout */}
+        <div className="about-visuals-grid">
+          <div className="visual-card primary-portrait reveal-up">
+            <img src="/female.jpeg" alt="Heenaa Panchal" className="parallax-img" />
+            <div className="image-accent-border"></div>
           </div>
-          <div className="founder-2">
-            {/* Male Placeholder */}
-            <img src="/male.jpeg" alt="Sanket Panchal" />
-            
-            <div className="experience-badge">
-              <span className="years">5+</span>
-              <span className="text">Years of<br/>Design Synergy</span>
+          
+          <div className="visual-card secondary-portrait reveal-down">
+            <img src="/male.jpeg" alt="Sanket Panchal" className="parallax-img" />
+            <div className="floating-trust-tag project-tag">
+              <span className="tag-num">50+</span>
+              <span className="tag-label">Projects<br/>Delivered</span>
             </div>
+          </div>
+
+          <div className="visual-card experience-square reveal-left">
+            <div className="exp-content">
+              <span className="exp-year">2020</span>
+              <span className="exp-label">Serving Since</span>
+            </div>
+            <div className="exp-blur-bg"></div>
           </div>
         </div>
 
-        {/* Right Side: Philosophy & Intro */}
-        <div className="about-content">
-          <span className="section-subtitle">Meet the Visionaries</span>
-          <h2 className="section-title" style={{ marginBottom: '2rem' }}>The Principal Designers</h2>
+        {/* Storytelling Side */}
+        <div className="about-content reveal-right">
+          <div className="story-header">
+            <span className="legacy-text">The Legacy of Wings</span>
+            <div className="gold-dash"></div>
+          </div>
           
-          <div className="founders-names">
-            <h3>Heenaa Panchal & <span>Sanket Panchal</span></h3>
-            <p className="designation">Founders & Lead Architects</p>
+          <h2 className="philosophy-title">
+            From sketching <span className="highlight-text">dream spaces</span> together <br/>
+            to shaping <span className="italic-text">luxury interiors.</span>
+          </h2>
+          
+          <div className="story-description">
+            <p>
+              Heenaa and Sanket Panchal turned their shared passion into Surat's most visionary design studio. 
+              Our journey is defined by more than just blueprints—it's about the soul of a home. 
+              We blend masculine structural precision with feminine stylistic grace to curate masterpieces 
+              deeply connected to the families who inhabit them.
+            </p>
           </div>
 
-          <p className="about-description drop-cap-para">
-            Together in life and design, Heenaa and Sanket bring a uniquely harmonious synergy to every space they curate. 
-            What began as a shared passion for aesthetic perfection has flourished into Surat's most trusted luxury turnkey interior firm.
-          </p>
-
-          <div className="about-quote-box">
-            <svg className="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M10 11H6C6 8.23858 8.23858 6 11 6V4C7.13401 4 4 7.13401 4 11V19H10V11ZM20 11H16C16 8.23858 18.23858 6 21 6V4C17.134 4 14 11V19H20V11Z" fill="currentColor"/>
-            </svg>
-            <p className="about-quote-text">
-              "We believe that true luxury lies at the intersection of absolute comfort and breathtaking personalization. 
-              By blending masculine architectural precision with warm, feminine stylistic grace, we create masterpieces deeply connected to the families who inhabit them."
+          <div className="about-quote-box-premium">
+            <div className="quote-mark">“</div>
+            <p className="quote-body">
+              True luxury is found at the intersection of total comfort and breathtaking personalization. 
+              Every home we build is a new chapter in someone’s story.
             </p>
+          </div>
+
+          <div className="about-footer-stats">
+            <div className="mini-stat">
+              <h4>Visionary</h4>
+              <span>Design Approach</span>
+            </div>
+            <div className="mini-stat">
+              <h4>Turnkey</h4>
+              <span>Full Execution</span>
+            </div>
           </div>
         </div>
 

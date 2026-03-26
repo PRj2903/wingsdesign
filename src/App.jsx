@@ -3,7 +3,9 @@ import './App.css';
 
 
 import Projects from './components/Projects';
+import Services from './components/Services';
 import About from './components/About';
+import Footer from './components/Footer';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -117,9 +119,9 @@ function App() {
             </div>
           </div>
           <ul className="drawer-links">
-            <li><a href="#projects" onClick={toggleMobileMenu}>Our Portfolio</a></li>
-            <li><a href="#services" onClick={toggleMobileMenu}>Specialization</a></li>
-            <li><a href="#about" onClick={toggleMobileMenu}>The Studio</a></li>
+            <li><span className="drawer-num">01.</span><a href="#projects" onClick={toggleMobileMenu}>Our Portfolio</a></li>
+            <li><span className="drawer-num">02.</span><a href="#services" onClick={toggleMobileMenu}>Specialization</a></li>
+            <li><span className="drawer-num">03.</span><a href="#about" onClick={toggleMobileMenu}>The Studio</a></li>
             <li><span className="drawer-contact-btn">Established in 2020</span></li>
           </ul>
         </div>
@@ -168,7 +170,9 @@ function App() {
         </section>
 
         <Projects />
+        <Services />
         <About />
+        <Footer />
       </div>
 
       {/* Floating WhatsApp Button */}
