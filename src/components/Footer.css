@@ -26,26 +26,46 @@
 }
 
 .footer-brand .footer-wings-icon {
-  width: 50px;
+  width: 240px;
   height: auto;
+  margin-bottom: 20px;
+}
+
+.footer-brand .logo-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .footer-brand h2 {
   font-size: 1.8rem;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
+  line-height: 1;
 }
 
 .footer-brand .wings-text {
   color: #fff;
-  font-weight: 400;
+  font-weight: 300;
+  text-transform: uppercase;
+  font-family: var(--font-serif);
 }
 
 .footer-brand .design-text {
   color: #c49a45;
-  font-weight: 300;
-  font-family: serif;
+  font-weight: 400;
+  font-family: var(--font-serif);
   font-style: italic;
-  margin-left: 1px;
+  margin-left: 8px;
+}
+
+.footer-brand .footer-tagline {
+  font-size: 0.6rem;
+  letter-spacing: 4px;
+  color: #c49a45;
+  margin-top: 8px;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+  font-weight: 500;
+  opacity: 0.8;
 }
 
 .footer-about {

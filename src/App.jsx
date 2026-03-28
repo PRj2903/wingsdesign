@@ -15,10 +15,10 @@ function App() {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
-    // Elegant intro takes ~3.5s (3s trace/fill delay + 0.5s linger) before triggering fade
-    const timer1 = setTimeout(() => setIsLoaded(true), 3500);
-    // Remove the intro from the DOM completely after the fade completes (about 1.5s after fade start)
-    const timer2 = setTimeout(() => setHideIntro(true), 5200);
+    // Reveal starts after the branding presentation (~2.8s)
+    const timer1 = setTimeout(() => setIsLoaded(true), 2800);
+    // Remove intro from DOM after panels fully clear (~4.2s)
+    const timer2 = setTimeout(() => setHideIntro(true), 4200);
 
     return () => {
       clearTimeout(timer1);
@@ -29,40 +29,12 @@ function App() {
   // Complex highly layered actual wing array for logo
   // Official SVG logo for navbar and drawer (matching the intro style)
   const LogoOfficial = ({ className }) => (
-    <svg className={className} viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="premiumGoldNav" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E6AD" />
-          <stop offset="50%" stopColor="#C49A45" />
-          <stop offset="100%" stopColor="#846625" />
-        </linearGradient>
-      </defs>
-      <g>
-        <path d="M68 60 C50 45 30 25 10 15 C20 22 35 35 55 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
-        <path d="M65 60 C45 42 22 20 5 15 C15 22 35 40 50 56 Z" fill="url(#premiumGoldNav)" />
-        <path d="M72 60 C90 45 110 25 130 15 C120 22 105 35 85 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
-        <path d="M75 60 C95 42 118 20 135 15 C125 22 105 40 90 56 Z" fill="url(#premiumGoldNav)" />
-      </g>
-    </svg>
+    <img src="/winglogo.png" alt="Wings Design Logo" className={className} />
   );
 
   // SVG tracing logo for introduction
   const LogoIntro = ({ className }) => (
-    <svg className={className} viewBox="0 0 140 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="premiumGold" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F5E6AD" />
-          <stop offset="50%" stopColor="#C49A45" />
-          <stop offset="100%" stopColor="#846625" />
-        </linearGradient>
-      </defs>
-      <g className="trace-group">
-        <path d="M68 60 C50 45 30 25 10 15 C20 22 35 35 55 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
-        <path d="M65 60 C45 42 22 20 5 15 C15 22 35 40 50 56 Z" fill="url(#premiumGold)" />
-        <path d="M72 60 C90 45 110 25 130 15 C120 22 105 35 85 52 Z" fill="#FFFFFF" fillOpacity="0.4" />
-        <path d="M75 60 C95 42 118 20 135 15 C125 22 105 40 90 56 Z" fill="url(#premiumGold)" />
-      </g>
-    </svg>
+    <img src="/winglogo.png" alt="Wings Design Introduction" className={className} />
   );
 
   return (
@@ -70,10 +42,17 @@ function App() {
       {/* Elegant, Fluent SVG Line Tracing Intro */}
       {!hideIntro && (
         <div className={`intro-master ${isLoaded ? 'fade-out' : ''}`}>
+          <div className="intro-panel left"></div>
+          <div className="intro-panel right"></div>
+          
+          <div className="intro-bg-text">WINGS DESIGN</div>
+          
           <div className="intro-content">
             <LogoIntro className="intro-wings-icon" />
-            <h1 className="intro-text">Wings Design</h1>
-            <p className="intro-subtitle">THE INTERIOR DESIGN STUDIO</p>
+            <div className="intro-tagline">Architecture of Atmosphere</div>
+            <div className="intro-loading-bar">
+              <div className="intro-loading-progress"></div>
+            </div>
           </div>
         </div>
       )}
@@ -82,17 +61,6 @@ function App() {
       <div className={`main-content ${isLoaded ? 'visible' : ''}`}>
         
         <nav className="navbar">
-          <div className="logo">
-            <div className="logo-content">
-              <LogoOfficial className="nav-wings-icon" />
-              <div className="logo-text">
-                <h2>
-                  <span className="wings-text">Wings</span>
-                  <span className="design-text">Design</span>
-                </h2>
-              </div>
-            </div>
-          </div>
           <ul className="nav-links">
             <li><a href="#projects">Our Portfolio</a></li>
             <li><a href="#services">Specialization</a></li>
@@ -126,47 +94,57 @@ function App() {
           </ul>
         </div>
 
-        {/* Hero Section */}
+        {/* Premium Editorial Hero Section */}
         <section className="hero">
-          {/* Full Background Layer */}
           <div className="hero-bg-container">
-            <img src="/hero.png" alt="Celestial Residence Concept" className="hero-bg-image" />
+            <img src="/hero.png" alt="Wings Design Masterpiece" className="hero-bg-image" />
             <div className="hero-bg-overlay"></div>
           </div>
 
           <div className="hero-content">
-            <div className="badge">Luxury Interior Design · Surat</div>
-            <h1 className="hero-title">
-              Crafting <span>Modern Luxury</span> Interiors
-            </h1>
-            <p className="hero-description">
-              Led by Heenaa Panchal, Wings Design is Surat's premier turnkey interior firm — delivering over 50+ bespoke masterpieces that blend architectural precision with warm, personalised elegance.
-            </p>
-            <div className="hero-actions">
-              <a href="#projects" className="btn-primary" style={{ textDecoration: 'none', display: 'inline-block' }}>View Our Portfolio</a>
-            </div>
-            <div className="hero-stats">
-              <div className="stat">
-                <h3>50+</h3>
-                <p>Curated <br/> Masterpieces</p>
+            <div className="hero-content-inner">
+              <LogoOfficial className="hero-highlight-logo" />
+              <div className="hero-badge-row">
+                <span className="hero-tag">Interior Architecture</span>
+                <span className="hero-tag-separator"></span>
+                <span className="hero-tag">Surat, Gujarat</span>
               </div>
-              <div className="stat-divider"></div>
-              <div className="stat">
-                <h3>10+</h3>
-                <p>Years of <br/> Excellence</p>
-              </div>
-              <div className="stat-divider"></div>
-              <div className="stat">
-                <h3>100%</h3>
-                <p>Bespoke <br/> Solutions</p>
-              </div>
+
+              <h1 className="hero-display-title">
+                Architecture of <br/>
+                <span className="italic-gold">Atmosphere</span> & <br/>
+                Modern Living
+              </h1>
+
+              <p className="hero-editorial-desc">
+                Led by Heenaa Panchal, Wings Design Studio transforms residential and commercial spaces into timeless architectural masterpieces that prioritize both fluent utility and bespoke elegance.
+              </p>
             </div>
           </div>
 
-         
-          {/* Decorative Elements */}
-          <div className="blob blob-1"></div>
-          <div className="blob blob-2"></div>
+          {/* Floating Experience Detail */}
+          <div className="hero-floating-detail">
+            <div className="detail-circle">
+              <span className="detail-num">10+</span>
+              <span className="detail-text">Years of <br/> Craft</span>
+            </div>
+          </div>
+
+          {/* Bottom Info Bar - Minimalist Stats */}
+          <div className="hero-bottom-bar">
+            <div className="footer-stats-item">
+              <span className="stat-value">50+</span>
+              <span className="stat-label">Bespoke Projects</span>
+            </div>
+            <div className="footer-stats-item">
+              <span className="stat-value">100%</span>
+              <span className="stat-label">Turnkey Delivery</span>
+            </div>
+            <div className="hero-scroll-indicator">
+              <span className="scroll-text">Scroll To Experience</span>
+              <div className="scroll-line"></div>
+            </div>
+          </div>
         </section>
 
         <Projects />
