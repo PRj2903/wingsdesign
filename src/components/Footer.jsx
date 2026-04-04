@@ -18,8 +18,9 @@ const Footer = () => {
                         <div className="footer-logo-box">
                             <LogoIMG />
                         </div>
+                        <div className="footer-studio-badge">Surat Premier Design Studio</div>
                         <p className="footer-about">
-                            Surat’s premier turnkey interior design studio. We specialize in crafting high-end, bespoke residential and commercial masterpieces through architectural excellence.
+                            Redefining luxury living through architectural precision and bespoke craftsmanship. We transform spaces into timeless experiences.
                         </p>
                     </div>
 
@@ -39,7 +40,7 @@ const Footer = () => {
                         <h4 className="footer-title">Connect</h4>
                         <div className="footer-social-links">
                             <a 
-                                href="https://www.instagram.com/wings_design_studio/" 
+                                href="c:\Users\Pratham\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\489804F612D23338E5E51703C14E089CAAE4CCB1\transfers\2026-13\WhatsApp Image 2026-03-28 at 18.08.42.jpeg" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="social-icon-btn"

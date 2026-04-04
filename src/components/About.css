@@ -1,332 +1,373 @@
-/* ================================== 
-   REFINED ABOUT SECTION (BROKEN GRID LAYOUT) 
-   Editorial Vision & High-Contrast Drama
-   ================================== */
-
-.about-section {
-  padding: 180px 5%;
-  background: #fdfaf7; /* Warm Off-White / Alabaster */
+/* About.css */
+.about-premium-section {
+  padding: 120px 5%;
+  background: #FFFFFF;
   position: relative;
   overflow: hidden;
-  z-index: 10;
 }
 
-/* 1. Visual Drama: Subtle Grainy Texture Overlay */
-.about-texture-overlay {
+.about-premium-bg-text {
   position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-  opacity: 1; /* Subtle fiber texture */
-  z-index: 0;
+  top: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 25vw;
+  font-weight: 300;
+  color: rgba(212, 175, 55, 0.03); /* Faint gold */
+  line-height: 1;
   pointer-events: none;
+  z-index: 0;
 }
 
-.about-container {
+.about-premium-container {
   display: flex;
-  align-items: center;
-  gap: 120px;
-  max-width: 1500px;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 80px;
+  max-width: 1400px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-/* 2. Visual Drama: Modern Broken Grid Images */
-.about-visuals-grid {
-  flex: 1.2;
-  position: relative;
-  height: 750px;
-}
-
-.visual-card {
-  position: absolute;
-  overflow: hidden;
-  border-radius: 4px;
-  box-shadow: 20px 40px 100px rgba(0,0,0,0.1);
-  background: #000;
-  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.primary-portrait {
-  width: 55%;
-  height: 80%;
-  left: 0;
-  top: 0;
-  z-index: 2;
-  border: 1px solid rgba(196, 154, 69, 0.2);
-}
-
-.parallax-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  /* Cinematic Black & White by default */
-  filter: grayscale(100%) contrast(1.1) brightness(0.9);
-  transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), 
-              filter 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.visual-card:hover .parallax-img {
-  transform: scale(1.08); 
-  /* Reveal High-Resolution Color on Hover */
-  filter: grayscale(0%) contrast(1) brightness(1);
-}
-
-.secondary-portrait {
-  width: 50%;
-  height: 65%;
-  right: 0;
-  bottom: 0px;
-  z-index: 1;
-  border: 4px solid #fff;
-  filter: drop-shadow(0 0 20px rgba(0,0,0,0.05));
-}
-
-.image-accent-border {
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  bottom: 15px;
-  right: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  pointer-events: none;
-}
-
-/* 3. Trust Factors: Floating Badges */
-.floating-trust-tag {
-  position: absolute;
-  bottom: 30px;
-  right: -25px;
-  background: #c49a45;
-  color: #fff;
-  padding: 1.5rem 2rem;
-  border-radius: 4px;
+/* ================== LEFT CONTENT ================== */
+.about-premium-content {
+  flex: 1;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 15px 35px rgba(196, 154, 69, 0.3);
-  z-index: 10;
-  transform: rotate(-3deg);
-}
-
-.tag-num {
-  font-family: var(--font-serif);
-  font-size: 2.5rem;
-  line-height: 1;
-  font-weight: 500;
-}
-
-.tag-label {
-  font-size: 0.65rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-top: 5px;
-  line-height: 1.4;
-}
-
-/* Serving Since Badge */
-.experience-square {
-  position: absolute;
-  top: 50%;
-  left: -40px;
-  transform: translateY(-50%) rotate(5deg);
-  background: #fff;
-  padding: 2rem;
-  border: 1px solid rgba(196, 154, 69, 0.1);
-  display: flex;
   justify-content: center;
-  align-items: center;
-  text-align: center;
-  z-index: 5;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.05);
 }
 
-.exp-year {
-  font-family: var(--font-serif);
-  font-size: 3rem;
-  color: #1a1a1a;
-  display: block;
-}
-
-.exp-label {
-  font-size: 0.75rem;
-  color: #c49a45;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  font-weight: 500;
-}
-
-/* 4. Storytelling: Typography */
-.about-content {
-  flex: 1;
-}
-
-.story-header {
+.about-premium-badge {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 2rem;
+  gap: 15px;
+  margin-bottom: 30px;
 }
 
-.legacy-text {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 5px;
-  color: #888;
-  font-weight: 500;
-}
-
-.gold-dash {
-  width: 50px;
+.gold-line {
+  width: 40px;
   height: 1px;
-  background: #c49a45;
+  background: var(--primary);
 }
 
-.philosophy-title {
-  font-family: var(--font-serif);
-  font-size: 4rem;
-  color: #1a1a1a;
-  line-height: 1.1;
-  font-weight: 400;
-  margin-bottom: 3.5rem;
-}
-
-.highlight-text {
-  color: #c49a45;
-}
-
-.italic-text {
-  font-style: italic;
-  font-weight: 500;
-}
-
-.story-description p {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: #555;
-  margin-bottom: 4rem;
-  max-width: 550px;
-  font-weight: 300;
-}
-
-.about-quote-box-premium {
-  position: relative;
-  padding-left: 60px;
-  margin-bottom: 4rem;
-}
-
-.about-quote-box-premium::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 10px;
-  bottom: 10px;
-  width: 3px;
-  background: #c49a45;
-}
-
-.quote-mark {
-  position: absolute;
-  left: 15px;
-  top: -30px;
-  font-family: serif;
-  font-size: 8rem;
-  color: #c49a45;
-  opacity: 0.1;
-}
-
-.quote-body {
-  font-family: var(--font-serif);
-  font-size: 1.4rem;
-  line-height: 1.7;
-  color: #1a1a1a;
-  font-style: italic;
-}
-
-.about-footer-stats {
-  display: flex;
-  gap: 4rem;
-  margin-top: 4rem;
-}
-
-.mini-stat h4 {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  color: #1a1a1a;
-  margin-bottom: 5px;
-  font-weight: 400;
-}
-
-.mini-stat span {
-  font-size: 0.7rem;
+.badge-text {
+  font-size: 0.8rem;
   text-transform: uppercase;
-  letter-spacing: 2px;
-  color: #c49a45;
+  letter-spacing: 4px;
+  color: #c5a059;
   font-weight: 600;
 }
 
-/* 5. Reveal Animations */
-.reveal-up, .reveal-down, .reveal-left, .reveal-right {
+.about-premium-title {
+  font-family: var(--font-serif);
+  font-size: 3.8rem;
+  line-height: 1.15;
+  color: #8A6B32;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.text-gold-light {
+  color: #D4AF37;
+}
+
+.text-italic-gold {
+  font-style: italic;
+  font-weight: 500;
+}
+
+.about-premium-desc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #9B7E46;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.about-premium-quote {
+  position: relative;
+  padding: 30px 40px;
+  background: rgba(212, 175, 55, 0.03);
+  border-left: 2px solid #D4AF37;
+  max-width: 500px;
+  margin-bottom: 50px;
+}
+
+.quote-icon {
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-family: var(--font-serif);
+  font-size: 5rem;
+  color: #D4AF37;
+  opacity: 0.3;
+  line-height: 1;
+}
+
+.about-premium-quote p {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #8A6B32;
+  line-height: 1.6;
+}
+
+.about-premium-stats {
+  display: flex;
+  gap: 60px;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.stat-value {
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  color: #D4AF37;
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #8A6B32;
+  font-weight: 600;
+}
+
+/* ================== RIGHT GALLERY ================== */
+.about-premium-gallery {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.premium-image-card {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.card-heenaa {
+  transform: translateY(-40px);
+}
+.card-sanket {
+  transform: translateY(40px);
+}
+
+.premium-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4; /* Perfect portrait ratio */
+  overflow: hidden;
+  border: 10px solid #FFFFFF; /* High-end museum passepartout */
+  box-shadow: 0 40px 100px rgba(138, 107, 50, 0.15); /* Warm architectural shadow */
+  background: #FFF;
+  z-index: 2;
+}
+
+/* --- Architectural Art Frame Container --- */
+.art-frame-container {
+  position: relative;
+  padding: 15px; /* Offset to leave space for the corner brackets */
+  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.frame-bracket-top-left,
+.frame-bracket-bottom-right {
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: 1.5px solid #D4AF37; /* Clean golden wires */
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  z-index: 1;
+}
+
+/* Top Left Corner Anchor */
+.frame-bracket-top-left {
+  top: 0;
+  left: 0;
+  border-right: none;
+  border-bottom: none;
+}
+
+/* Bottom Right Corner Anchor */
+.frame-bracket-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-left: none;
+  border-top: none;
+}
+
+/* --- Golden Frame Extension on Hover --- */
+.premium-image-card:hover .art-frame-container {
+  transform: scale(1.02); /* Very subtle lift */
+}
+
+.premium-image-card:hover .frame-bracket-top-left {
+  top: -10px;
+  left: -10px;
+  width: 55px;
+  height: 55px;
+  border-width: 2px;
+}
+
+.premium-image-card:hover .frame-bracket-bottom-right {
+  bottom: -10px;
+  right: -10px;
+  width: 55px;
+  height: 55px;
+  border-width: 2px;
+}
+
+/* --- Image Styling Inside Frame --- */
+.premium-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease;
+  filter: grayscale(80%) sepia(20%) contrast(1.1); /* Subtle vintage architecture feel */
+}
+
+/* Hover Effects */
+.premium-hover-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(212, 175, 55, 0.1);
   opacity: 0;
-  transition: transform 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 1.2s ease;
+  transition: opacity 0.6s ease;
+  z-index: 2;
 }
 
-.reveal-up { transform: translateY(60px); }
-.reveal-down { transform: translateY(-60px); }
-.reveal-left { transform: translateX(-60px); }
-.reveal-right { transform: translateX(60px); }
+.hover-borders {
+  position: absolute;
+  inset: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  transform: scale(0.9);
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
 
-/* Class added by IntersectionObserver */
-.about-section.reveal-active .reveal-up,
-.about-section.reveal-active .reveal-down,
-.about-section.reveal-active .reveal-left,
-.about-section.reveal-active .reveal-right {
+.premium-image-wrapper:hover .premium-img {
+  transform: scale(1.08); /* Slow luxurious zoom */
+  filter: grayscale(0%) sepia(0%) brightness(1.05) contrast(1.05); /* Full color on hover */
+}
+
+.premium-image-wrapper:hover .premium-hover-overlay {
   opacity: 1;
-  transform: translate(0, 0) rotate(0);
 }
 
-/* Custom rotations maintained for some elements */
-.about-section.reveal-active .floating-trust-tag { transform: rotate(-3deg); }
-.about-section.reveal-active .experience-square { transform: translateY(-50%) rotate(5deg); }
-
-/* Parallax Floating Effect */
-.about-section.reveal-active .experience-square {
-  animation: floatBadge 8s ease-in-out infinite;
+.premium-image-wrapper:hover .hover-borders {
+  transform: scale(1);
+  opacity: 1;
 }
 
-@keyframes floatBadge {
-  0% { transform: translateY(-50%) rotate(5deg); }
-  50% { transform: translateY(-60%) rotate(3deg); }
-  100% { transform: translateY(-50%) rotate(5deg); }
+.premium-card-footer {
+  text-align: center;
 }
 
-/* Responsive */
+.premium-card-footer h3 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: #8A6B32;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.premium-card-footer span {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #c5a059;
+}
+
+/* ================== ANIMATIONS ================== */
+.anim-slide-right, .anim-slide-left {
+  opacity: 1; 
+}
+
+.is-visible .anim-slide-right {
+  animation: slideInRight 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.is-visible .anim-slide-left {
+  animation: slideInLeft 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes slideInRight {
+  0% { opacity: 0; transform: translateX(-50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInLeft {
+  0% { opacity: 0; transform: translateX(50px); }
+  100% { opacity: 1; transform: translateX(0); }
+}
+
+/* ================== RESPONSIVE ================== */
 @media (max-width: 1024px) {
-  .about-container { flex-direction: column; gap: 80px; }
-  .about-visuals-grid { width: 100%; max-width: 600px; }
-  .philosophy-title { font-size: 3rem; }
-}
+  .about-premium-container {
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .about-premium-content {
+    align-items: center;
+  }
+  
+  .about-premium-desc {
+    text-align: center;
+  }
+  
+  .about-premium-quote {
+    text-align: center;
+    padding: 30px;
+    border-left: none;
+    border-top: 2px solid #D4AF37;
+  }
+  
+  .quote-icon {
+    left: 50%;
+    transform: translateX(-50%);
+    top: -35px;
+  }
 
-@media (max-width: 768px) {
-  .about-section { padding: 100px 5%; }
-  .philosophy-title { font-size: 2.2rem; }
-  .about-visuals-grid { height: 600px; }
-  .primary-portrait { width: 65%; }
-  .secondary-portrait { width: 60%; }
+  .about-premium-gallery {
+    width: 100%;
+    max-width: 800px;
+    align-items: flex-start;
+  }
+  
+  .card-heenaa, .card-sanket {
+    transform: none; /* Reset offset for tablet/mobile */
+  }
 }
 
 @media (max-width: 600px) {
-  .about-visuals-grid { height: auto; display: flex; flex-direction: column; gap: 20px; }
-  .primary-portrait, .secondary-portrait, .experience-square {
-    position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    width: 100% !important;
-    height: 400px;
-    transform: none !important;
+  .about-premium-section {
+    padding: 80px 5%;
   }
-  .experience-square { height: 120px; }
-  .floating-trust-tag { right: 20px; bottom: 20px; }
+
+  .about-premium-title {
+    font-size: 3rem;
+  }
+  
+  .about-premium-gallery {
+    grid-template-columns: 1fr; /* Stack vertically perfectly */
+    gap: 50px;
+  }
+  
+  .premium-image-wrapper {
+    aspect-ratio: 4/5; /* Slightly shorter on mobile */
+  }
 }

@@ -11,12 +11,13 @@ const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
 
   // Refs for reading latest values inside GSAP callbacks (avoids stale closures)
   const currentIndexRef = useRef(0);
   const isAnimatingRef = useRef(false);
   const selectedProjectRef = useRef(null);
+  const selectedImageIndexRef = useRef(null);
 
   const containerRef = useRef(null);
   const imageRef = useRef(null);
@@ -30,73 +31,85 @@ const Projects = () => {
   useEffect(() => { currentIndexRef.current = currentIndex; }, [currentIndex]);
   useEffect(() => { isAnimatingRef.current = isAnimating; }, [isAnimating]);
   useEffect(() => { selectedProjectRef.current = selectedProject; }, [selectedProject]);
+  useEffect(() => { selectedImageIndexRef.current = selectedImageIndex; }, [selectedImageIndex]);
 
   const projects = [
     {
       id: 1,
-      title: "The Elysian Penthouse",
+      title: "The Vyas",
       category: "Residential Architecture",
-      location: "Vesu, Surat",
-      area: "4,500 Sq. Ft.",
-      year: "2023",
-      description: "A breathtaking high-rise sanctuary bathed in natural light, featuring bespoke joinery, curated art pieces, and panoramic city views. Every inch is crafted to exude refined modern luxury.",
-      mainImage: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1600&q=90",
+      location: "Adajan, Surat",
+      area: "2,000 Sq. Ft.",
+      year: "2025",
+      description: "A meticulously crafted high-rise sanctuary that optimizes every architectural inch. This residence is defined by its seamless integration of bespoke materials and ambient lighting, creating a warm, editorial atmosphere for a modern family.",
+      mainImage: "/project1/1.jpg.jpeg",
       gallery: [
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&q=80",
-        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=80",
-        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80",
-        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=1200&q=80",
-        "https://images.unsplash.com/photo-1600607687644-c7171eb3239a?w=1200&q=80",
+        "/project1/2.jpg.jpeg",
+        "/project1/3.jpg.jpeg",
+        "/project1/4.jpg.jpeg",
+        "/project1/5.jpg.jpeg",
+        "/project1/6.jpg.jpeg",
+        "/project1/7.jpg.jpeg",
+        "/project1/9.jpg.jpeg",
+        "/project1/10.jpg.jpeg",
+        "/project1/11.jpg.jpeg",
+        "/project1/BQS_1566-Edit.jpg.jpeg"
       ]
     },
     {
       id: 2,
-      title: "Aura Villa Estate",
-      category: "Luxury Turnkey",
-      location: "Adajan, Surat",
-      area: "8,200 Sq. Ft.",
-      year: "2022",
-      description: "A seamless blend of indoor and outdoor living. This vast estate embraces earthy tones, organic textures, and premium metallic accents to create a tranquil, resort-like atmosphere.",
-      mainImage: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1600&q=90",
+      title: "Baghban Lifestyle 4BHK",
+      category: "Residential Project",
+      location: "Pal, Surat",
+      area: "2,400 Sq. Ft.",
+      year: "2024",
+      description: "A beautifully curated residential space that blends modern design with functional elegance. The layout maximizes natural light, while bespoke interiors provide a luxurious yet comfortable atmosphere for the entire family.",
+      mainImage: "/project2/7.jpeg",
       gallery: [
-        "https://images.unsplash.com/photo-1613545325278-f24b0cae1224?w=1200&q=80",
-        "https://images.unsplash.com/photo-1617806118233-ef85a070a286?w=1200&q=80",
-        "https://images.unsplash.com/photo-1616489953149-92b490799684?w=1200&q=80",
-        "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1200&q=80",
+        "/project2/1.jpeg",
+        "/project2/2.jpeg",
+        "/project2/3.jpeg",
+        "/project2/4.jpeg",
+        "/project2/5.jpeg",
+        "/project2/6.jpeg",
+        "/project2/8.jpeg",
+        "/project2/9.jpeg",
+        "/project2/10.jpeg",
+        "/project2/11.jpeg",
+        "/project2/12.jpeg",
+        "/project2/13.jpeg",
+        "/project2/14.jpeg",
+        "/project2/15.jpeg",
+        "/project2/16.jpeg",
+        "/project2/17.jpeg",
+        "/project2/18.jpeg",
+        "/project2/19.jpeg",
+        "/project2/20.jpeg",
       ]
     },
     {
       // Images fixed — replaced broken Unsplash restaurant URLs
       id: 3,
-      title: "Lumiere Dining Suite",
+      title: "Santvan Seron",
       category: "Commercial Spaces",
       location: "Piplod, Surat",
       area: "2,800 Sq. Ft.",
       year: "2024",
       description: "An exclusive culinary atmosphere designed with ambient lighting, rich upholstery, and acoustically treated sculptural ceilings, creating an unforgettable and intimate dining experience.",
-      mainImage: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1600&q=90",
+      mainImage: "/project3/1.jpeg",
       gallery: [
-        "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1200&q=80",
-        "https://images.unsplash.com/photo-1424847651672-bf20a4b0982b?w=1200&q=80",
-        "https://images.unsplash.com/photo-1552566626-52f8b828329e?w=1200&q=80",
-        "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?w=1200&q=80",
-      ]
-    },
-    {
-      id: 4,
-      title: "Velvet Executive Hub",
-      category: "Office Interiors",
-      location: "Varacha, Surat",
-      area: "3,500 Sq. Ft.",
-      year: "2023",
-      description: "A workspace that prioritizes both productivity and prestige. Designed with dark oak, deep leather accents, and integrated smart technology for the modern visionary.",
-      mainImage: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=1600&q=90",
-      gallery: [
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=1200&q=80",
-        "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1200&q=80",
-        "https://images.unsplash.com/photo-1604328698692-f76ea9498e76?w=1200&q=80",
+        "/project3/2.jpeg",
+        "/project3/3.jpeg",
+        "/project3/4.jpeg",
+        "/project3/5.jpeg",
+        "/project3/6.jpeg",
+        "/project3/7.jpeg",
+        "/project3/8.jpeg",
+        "/project3/9.jpeg",
+        "/project3/10.jpeg",
       ]
     }
+
   ];
 
   const currentProject = projects[currentIndex];
@@ -216,13 +229,34 @@ const Projects = () => {
     document.body.style.overflow = 'auto';
   };
 
+  const navigateLightbox = (direction) => {
+    if (selectedImageIndexRef.current === null || !selectedProjectRef.current) return;
+    const gallery = selectedProjectRef.current.gallery;
+    const len = gallery.length;
+    const nextIdx = direction === 'next'
+      ? (selectedImageIndexRef.current === len - 1 ? 0 : selectedImageIndexRef.current + 1)
+      : (selectedImageIndexRef.current === 0 ? len - 1 : selectedImageIndexRef.current - 1);
+    setSelectedImageIndex(nextIdx);
+  };
+
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e) => {
+      // If lightbox is open, navigate gallery images
+      if (selectedImageIndexRef.current !== null) {
+        if (e.key === 'Escape') setSelectedImageIndex(null);
+        if (e.key === 'ArrowLeft') navigateLightbox('prev');
+        if (e.key === 'ArrowRight') navigateLightbox('next');
+        return;
+      }
+
+      // If modal is open
       if (selectedProjectRef.current) {
         if (e.key === 'Escape') closeProject();
         return;
       }
+
+      // Main slider navigation
       if (e.key === 'ArrowLeft') animateSlideRef.current('prev');
       if (e.key === 'ArrowRight') animateSlideRef.current('next');
     };
@@ -242,19 +276,22 @@ const Projects = () => {
             <img src={selectedProject.mainImage} alt={selectedProject.title} />
             <div className="p-hero-fade">
               <div className="p-hero-content">
-                <span className="p-modal-tag">{selectedProject.category}</span>
-                <h2 className="p-modal-title">{selectedProject.title}</h2>
+                <div className="p-hero-main-info">
+                  <span className="p-modal-tag">{selectedProject.category}</span>
+                  <h2 className="p-modal-title">{selectedProject.title}</h2>
+                </div>
+                
+                <div className="p-modal-hero-specs">
+                  <div className="hero-spec"><label>Location</label><span>{selectedProject.location}</span></div>
+                  <div className="hero-spec"><label>Area</label><span>{selectedProject.area}</span></div>
+                  <div className="hero-spec"><label>Year</label><span>{selectedProject.year}</span></div>
+                </div>
               </div>
             </div>
           </div>
 
           <div className="p-modal-details-grid">
             <div className="p-modal-info">
-              <div className="spec-row">
-                <div className="spec-box"><label>Location</label><p>{selectedProject.location}</p></div>
-                <div className="spec-box"><label>Area</label><p>{selectedProject.area}</p></div>
-                <div className="spec-box"><label>Year</label><p>{selectedProject.year}</p></div>
-              </div>
               <div className="p-modal-long-desc">
                 <h4>About the Project</h4>
                 <p>{selectedProject.description}</p>
@@ -267,7 +304,7 @@ const Projects = () => {
                 <div
                   key={idx}
                   className={`p-gallery-item ${idx % 3 === 0 ? 'span-2' : ''}`}
-                  onClick={() => setSelectedImage(img)}
+                  onClick={() => setSelectedImageIndex(idx)}
                 >
                   <img src={img} alt={`${selectedProject.title} gallery ${idx}`} loading="lazy" />
                   <div className="img-hover-hint"><FaExpand /></div>
@@ -284,10 +321,13 @@ const Projects = () => {
     </div>
   );
 
-  const lightboxJSX = selectedImage && (
-    <div className="p-lightbox" onClick={() => setSelectedImage(null)}>
+  const lightboxJSX = (selectedImageIndex !== null && selectedProject) && (
+    <div className="p-lightbox" onClick={() => setSelectedImageIndex(null)}>
       <button className="lightbox-close"><FaTimes /></button>
-      <img src={selectedImage} alt="Fullscreen View" />
+      <img src={selectedProject.gallery[selectedImageIndex]} alt="Fullscreen View" onClick={(e) => e.stopPropagation()} />
+      <div className="lightbox-nav-hint">
+        Use Left/Right Arrows to Navigate • {selectedImageIndex + 1} / {selectedProject.gallery.length}
+      </div>
     </div>
   );
 

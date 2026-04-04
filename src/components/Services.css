@@ -1,297 +1,274 @@
-/* ================================== 
-   REFINED SERVICES SECTION (LUXURY CANVAS) 
-   Interactive Experience with Depth & Motion
-   ================================== */
+/* ==================================
+   SERVICES - SPRING JOURNEY - EDITORIAL
+   White & Gold Header Container
+=================================== */
 
 .services-section {
-  padding: 180px 5%;
-  background: #050505; /* Deep, True Black Base */
-  color: #fff;
-  position: relative;
-  z-index: 10;
-  overflow: hidden;
-}
-
-/* 1. Background Depth Elements */
-.services-bg-texture {
-  position: absolute;
-  inset: 0;
-  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
-  opacity: 0.15; /* Subtle noise / grainy feel */
-  z-index: 1;
-  pointer-events: none;
-}
-
-.services-bg-gradient {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
-  height: 80%;
-  background: radial-gradient(circle, rgba(196, 154, 69, 0.05) 0%, transparent 70%);
-  z-index: 2;
-  pointer-events: none;
+    padding: 10rem 0;
+    background: radial-gradient(circle at 50% 50%, #fbf7ef 0%, #f4eee0 100%);
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
 }
 
 .services-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
-  z-index: 5;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* 2. Header Improvements */
+/* Elegant Header Container */
+.spring-header-container {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    padding: 5rem 8rem;
+    border-radius: 4px;
+    max-width: 1000px;
+    width: 100%;
+    margin-bottom: 0; /* Remove gap so line starts from bottom */
+    text-align: center;
+    box-shadow: 0 30px 60px rgba(138, 107, 50, 0.05);
+    position: relative;
+    z-index: 15;
+}
+
 .services-header {
-  text-align: center;
-  margin-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.services-label {
-  font-family: var(--font-sans);
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 6px;
-  color: #c49a45;
-  margin-bottom: 15px;
-  font-weight: 500;
+.spring-label {
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    color: var(--primary);
+    margin-bottom: 2.5rem;
+    font-weight: 600;
 }
 
-.services-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 400;
-  line-height: 1.1;
-  color: #fff;
+.spring-main-title {
+    font-family: var(--font-serif);
+    font-size: 4.5rem;
+    color: var(--primary-dark);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 2rem;
 }
 
-.gold-text {
-  color: #c49a45;
-  font-style: italic;
+.header-divider-gold {
+    width: 80px;
+    height: 1px;
+    background: var(--primary);
+    margin-bottom: 2rem;
+    opacity: 0.6;
 }
 
-.header-line {
-  width: 60px;
-  height: 1px;
-  background: #c49a45;
-  margin: 25px auto 0;
+.spring-subtitle {
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.8;
 }
 
-/* 3. Luxury Cards Grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  margin-bottom: 80px;
+/* Spring Path Flow */
+.spring-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 5rem; /* Space for the start of the line */
+    margin-top: -1px; /* Stitch to header container */
 }
 
-.service-card {
-  position: relative;
-  background: rgba(20, 20, 20, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 60px 40px;
-  min-height: 480px;
-  display: flex;
-  flex-direction: column;
-  transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
-  overflow: hidden;
-  border-radius: 4px;
+.spring-svg {
+    position: absolute;
+    top: -5rem; /* Pull up to touch the header container */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.7;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.2));
 }
 
-/* 4. WOW Reveal Background (Blurred Glimpse) */
-.card-glimpse {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(40px) brightness(0.4);
-  opacity: 0;
-  transform: scale(1.1);
-  transition: all 0.8s ease;
-  z-index: 0;
+.spring-path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 0.6 !important;
 }
 
-.service-card:hover .card-glimpse {
-  opacity: 0.5;
-  transform: scale(1);
+/* Steps Layout */
+.spring-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15rem;
+    padding-bottom: 10rem;
 }
 
-/* 5. Big Number Watermarks */
-.service-number-watermark {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  font-family: var(--font-serif);
-  font-size: 15rem;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
-  line-height: 1;
-  pointer-events: none;
-  transition: all 0.6s ease;
-  z-index: 1;
+.spring-step {
+    position: relative;
+    width: 100%;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
 }
 
-.service-card:hover .service-number-watermark {
-  color: rgba(196, 154, 69, 0.08); /* Highlight on hover */
-  transform: translateY(20px) scale(1.1);
+.spring-pin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border: 2.5px solid var(--primary);
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+    z-index: 10;
 }
 
-/* 6. Card Content Styling */
-.service-card-content {
-  position: relative;
-  z-index: 5;
+.spring-flex-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12rem;
+    max-width: 1300px;
 }
 
-.service-icon-box {
-  width: 60px;
-  height: 60px;
-  color: #c49a45;
-  margin-bottom: 35px;
-  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+.spring-step.left .spring-flex-container { flex-direction: row; }
+.spring-step.right .spring-flex-container { flex-direction: row-reverse; }
+
+/* Content Panel */
+.spring-content {
+    flex: 1;
+    position: relative;
 }
 
-.service-card:hover .service-icon-box {
-  transform: scale(1.2) rotate(5deg);
+.spring-step.left .spring-content { text-align: right; }
+.spring-step.right .spring-content { text-align: left; }
+
+.step-name {
+    font-family: var(--font-serif);
+    font-size: 3.8rem;
+    color: var(--primary-dark);
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -2px;
 }
 
-.service-card-title {
-  font-family: var(--font-serif);
-  font-size: 1.8rem;
-  font-weight: 400;
-  margin-bottom: 25px;
-  color: #fff;
+.step-text {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    line-height: 2;
+    color: var(--text-muted);
+    max-width: 480px;
+    font-weight: 300;
+    display: inline-block;
 }
 
-.service-card-desc {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #888;
-  margin-bottom: 35px;
-  font-weight: 300;
+/* Background Watermark */
+.step-watermark-bg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: var(--font-serif);
+    font-size: 25rem;
+    background: linear-gradient(to bottom, #D4AF37, #8A6B32);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    opacity: 0.12;
+    line-height: 1;
+    pointer-events: none;
+    z-index: -1;
 }
 
-.service-feature-list {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+.spring-step.left .step-watermark-bg { right: -5rem; text-align: right; }
+.spring-step.right .step-watermark-bg { left: -5rem; text-align: left; }
+
+/* Image Panel */
+.spring-image-box { flex: 1.3; }
+.image-reveal-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3.2;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 60px 100px rgba(138, 107, 50, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.image-reveal-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform 3s ease; }
+.spring-image-overlay { position: absolute; inset: 0; background: radial-gradient(circle at 30% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 80%); pointer-events: none; }
+.spring-step:hover .image-reveal-wrapper img { transform: scale(1.1); }
+
+/* Final Section - Line Ends Exactly Here */
+.spring-footer-journey {
+    padding-top: 10rem;
+    padding-bottom: 5rem;
+    text-align: center;
+    position: relative;
+    z-index: 10;
 }
 
-.service-feature-list li {
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: color 0.3s ease;
+.final-journey-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.gold-dot {
-  width: 4px;
-  height: 4px;
-  background: #c49a45;
-  border-radius: 50%;
-  box-shadow: 0 0 10px #c49a45;
+.btn-label {
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    color: var(--primary-dark);
+    text-transform: uppercase;
+    letter-spacing: 12px;
+    font-weight: 600;
+    transition: all 0.5s ease;
 }
 
-.service-card:hover .service-feature-list li {
-  color: #fff;
+.btn-line {
+    width: 160px;
+    height: 2px;
+    background: var(--primary);
+    transition: width 0.5s ease;
 }
 
-/* 7. Hover magic: Card Lift & Glow */
-.service-card:hover {
-  transform: translateY(-15px);
-  border-color: rgba(196, 154, 69, 0.4);
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), 0 0 40px rgba(196, 154, 69, 0.1);
-}
+.btn-icon { font-size: 2.2rem; color: var(--primary); opacity: 0.9; }
 
-.card-border-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #c49a45, transparent);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
+.final-journey-btn:hover .btn-label { letter-spacing: 18px; color: var(--primary); }
+.final-journey-btn:hover .btn-line { width: 250px; }
 
-.service-card:hover .card-border-glow {
-  opacity: 1;
-}
-
-/* 8. Modern Call-to-Actions */
-.services-ctas {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.cta-button {
-  padding: 1.2rem 3rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  border-radius: 4px;
-}
-
-.primary-cta {
-  background: #c49a45;
-  color: #000;
-}
-
-.primary-cta:hover {
-  background: #fff;
-  transform: translateY(-5px);
-  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.15);
-}
-
-.secondary-cta {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-.secondary-cta:hover {
-  border-color: #c49a45;
-  color: #c49a45;
-  transform: translateY(-5px);
-}
-
-
-/* 9. Micro-Animation Entry (Staggered) */
-[class*="stagger-"] {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 1s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.services-revealed .stagger-1 { transition-delay: 0.1s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-2 { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-3 { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-4 { transition-delay: 0.4s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-5 { transition-delay: 0.5s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-6 { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-7 { transition-delay: 0.7s; opacity: 1; transform: translateY(0); }
-.services-revealed .stagger-8 { transition-delay: 0.8s; opacity: 1; transform: translateY(0); }
-
-/* Responsive Overrides */
+/* Responsive Adjustments */
 @media (max-width: 1200px) {
-  .services-grid { grid-template-columns: repeat(2, 1fr); }
+    .spring-header-container { padding: 4rem 5rem; }
+    .spring-main-title { font-size: 3.8rem; }
+    .step-name { font-size: 2.8rem; }
 }
 
-@media (max-width: 768px) {
-  .services-section { padding: 100px 5%; }
-  .services-grid { grid-template-columns: 1fr; }
-  .services-ctas { flex-direction: column; align-items: stretch; }
-  .service-number-watermark { font-size: 10rem; }
-  .service-card { min-height: auto; padding: 50px 30px; }
+@media (max-width: 992px) {
+    .spring-header-container { padding: 3rem 2rem; border-radius: 0; border-left: none; border-right: none; }
+    .spring-svg { left: 40px; transform: none; width: 120px; }
+    .spring-pin { left: -40px; }
+    .spring-flex-container { flex-direction: column-reverse !important; padding-left: 100px; align-items: flex-start; gap: 4rem; }
+    .spring-step.left .spring-content, .spring-step.left .spring-content { text-align: left; }
+    .step-watermark-bg { font-size: 18rem; left: -1rem !important; right: auto !important; text-align: left !important; }
+}
+
+@media (max-width: 480px) {
+    .spring-main-title { font-size: 2.8rem; }
+    .step-watermark-bg { font-size: 12rem; }
+    .spring-label { letter-spacing: 8px; }
 }

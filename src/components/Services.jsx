@@ -1,164 +1,177 @@
 import React, { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { FaLongArrowAltRight } from 'react-icons/fa';
 import './Services.css';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const servicesData = [
   {
     number: '01',
     title: 'Curated Residential',
     description: 'Bespoke living experiences crafted for villas, penthouses, and refined private residences.',
-    features: ['Architectural Visualization', 'Global Sourcing', 'Custom Millwork'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 21H21M5 21V8L12 3L19 8V21M9 21V14H15V21" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1613977257363-707ba9348227?q=80&w=1000'
   },
   {
     number: '02',
     title: 'Turnkey Solutions',
-    description: 'Flawless design-to-delivery management, ensuring a seamless journey from blueprint to reality.',
-    features: ['Project Management', 'Structural Audits', 'Vendor Integration'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000&auto=format&fit=crop'
+    description: 'Flawless design-to-delivery management. We handle everything from the first brick to the final cushion.',
+    image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?q=80&w=1000'
   },
   {
     number: '03',
     title: 'Commercial Design',
     description: 'Transformative corporate environments that mirror high-end brand identities and visionary workspaces.',
-    features: ['Corporate Branding', 'Ergonomic Luxury', 'Sustainable Tech'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19 21V5C19 3.89543 18.1046 3 17 3H7C5.89543 3 5 3.89543 5 5V21M3 21H21M9 7H10M9 11H10M9 15H10M14 7H15M14 11H15M14 15H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000'
   },
   {
     number: '04',
     title: '3D Visualization',
-    description: 'Hyper-realistic cinematic renderings that allow you to walk through your future home before it exists.',
-    features: ['VR Walkthroughs', 'Lighting Simulation', 'Material Accuracy'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M21 16V8L12 3L3 8V16L12 21L21 16Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M3 8L12 13L21 8M12 21V13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1541888941259-792739460272?q=80&w=1000&auto=format&fit=crop'
+    description: 'Hyper-realistic cinematic renderings. Walk through your future home before the foundation is laid.',
+    image: 'https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=1000'
   },
   {
     number: '05',
     title: 'Bespoke Furniture',
-    description: 'One-of-a-kind statement pieces that bridge the gap between architectural art and utilitarian function.',
-    features: ['Hand-Carved Veneers', 'Exclusive Fabrics', 'Signature Metals'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M4 18V6H12M4 10H12M20 18V12C20 10.8954 19.1046 10 18 10H12M12 10V18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1000&auto=format&fit=crop'
+    description: 'One-of-a-kind statement pieces that bridge the gap between architectural art and function.',
+    image: 'https://images.unsplash.com/photo-1533090161767-e6ffed986c88?q=80&w=1000'
   },
   {
     number: '06',
     title: 'Landscape Mastery',
     description: 'Lush, architectural outdoor spaces designed to be a natural extension of your indoor luxury.',
-    features: ['Zen Gardens', 'Infinity Poolscapes', 'Sculptural Lighting'],
-    icon: (
-      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3L4 9V21H20V9L12 3Z" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-        <path d="M12 11V15M9 13H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-      </svg>
-    ),
-    bgGlimpse: 'https://images.unsplash.com/photo-1558603668-6570496b66f8?q=80&w=1000&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1558603668-6570496b66f8?q=80&w=1000'
   }
 ];
 
 const Services = () => {
   const sectionRef = useRef(null);
+  const pathRef = useRef(null);
+  const triggerRef = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('services-revealed');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
+    // 1. Path Drawing Animation (The Spring)
+    const path = pathRef.current;
+    if (path && typeof path.getTotalLength === 'function') {
+      try {
+        const length = path.getTotalLength();
+        if (length && length > 0) {
+          gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+          gsap.to(path, {
+            strokeDashoffset: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: triggerRef.current,
+              start: "top 40%",
+              end: "bottom 80%",
+              scrub: 1,
+            }
+          });
+        }
+      } catch (err) {
+        console.error("SVG Path error:", err);
+      }
     }
-    return () => observer.disconnect();
-  }, []);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById('footer'); // or wherever contact is
-    if (contactSection) contactSection.scrollIntoView({ behavior: 'smooth' });
-  };
+    // 2. Individual Step Reveals
+    const steps = gsap.utils.toArray('.spring-step');
+    if (steps.length > 0) {
+      steps.forEach((step, index) => {
+        const isLeft = index % 2 === 0;
+        const content = step.querySelector('.spring-content');
+        const image = step.querySelector('.spring-image-box');
+        const pin = step.querySelector('.spring-pin');
+
+        if (content && image && pin) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: step,
+              start: "top 70%",
+              toggleActions: "play none none reverse"
+            }
+          });
+
+          tl.fromTo(pin, 
+            { scale: 0, autoAlpha: 0 }, 
+            { scale: 1, autoAlpha: 1, duration: 0.6, ease: "back.out(2)" }
+          )
+          .fromTo(content, 
+            { x: isLeft ? -40 : 40, opacity: 0, filter: "blur(5px)" }, 
+            { x: 0, opacity: 1, filter: "blur(0px)", duration: 0.8, ease: "power3.out" }, 
+            "-=0.4"
+          )
+          .fromTo(image, 
+            { scale: 0.8, opacity: 0, rotation: isLeft ? 5 : -5 }, 
+            { scale: 1, opacity: 1, rotation: 0, duration: 1, ease: "power2.out" }, 
+            "-=0.6"
+          );
+        }
+      });
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+    };
+  }, []);
 
   return (
     <section className="services-section" id="services" ref={sectionRef}>
-      {/* Background Depth Elements */}
-      <div className="services-bg-texture"></div>
-      <div className="services-bg-gradient"></div>
-      
       <div className="services-container">
-        <header className="services-header">
-          <div className="services-label stagger-1">Signature Expertise</div>
-          <h2 className="services-title stagger-2">Curating <span className="gold-text">Timeless Environments</span></h2>
-          <div className="header-line stagger-3"></div>
-        </header>
-
-        <div className="services-grid">
-          {servicesData.map((service, index) => (
-            <div 
-              key={index} 
-              className={`service-card stagger-${index + 1}`}
-            >
-              <div className="card-glimpse" style={{ backgroundImage: `url(${service.bgGlimpse})` }}></div>
-              <div className="service-number-watermark">{service.number}</div>
-              
-              <div className="service-card-content">
-                <div className="service-icon-box">
-                  {service.icon}
-                </div>
-                
-                <h3 className="service-card-title">{service.title}</h3>
-                <p className="service-card-desc">{service.description}</p>
-                
-                <ul className="service-feature-list">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx}>
-                      <span className="gold-dot"></span> {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="card-border-glow"></div>
-            </div>
-          ))}
+        <div className="spring-header-container">
+          <header className="services-header">
+            <span className="spring-label">Expertise Journey</span>
+            <h2 className="spring-main-title">Crafting Your Vision, <span className="gold-text">Like a Spring</span></h2>
+            <div className="header-divider-gold"></div>
+            {/* <p className="spring-subtitle">Experience a fluid, progressive reveal of our architectural specializations.</p> */}
+          </header>
         </div>
 
-        {/* Call to Actions */}
-        <div className="services-ctas stagger-8">
-          <button className="cta-button primary-cta" onClick={() => window.location.href="#projects"}>
-            Experience Our Portfolio
-          </button>
-          <button 
-            className="cta-button secondary-cta" 
-            onClick={() => window.open('https://wa.me/917990207778', '_blank')}
-          >
-            Request Private Consultation
-          </button>
+        <div className="spring-wrapper" ref={triggerRef}>
+          {/* Animated SVG Spring Path */}
+          <svg className="spring-svg" viewBox="0 0 100 1200" preserveAspectRatio="none">
+            <path 
+              ref={pathRef}
+              className="spring-path"
+              d="M50,0 C90,100 10,200 50,300 C90,400 10,500 50,600 C90,700 10,800 50,900 C90,1000 10,1100 50,1200"
+              fill="none" 
+              stroke="#D4AF37" 
+              strokeWidth="0.5"
+            />
+          </svg>
+
+          <div className="spring-steps">
+            {servicesData.map((service, index) => (
+              <div key={index} className={`spring-step ${index % 2 === 0 ? 'left' : 'right'}`}>
+                {/* Visual Connector Pin on the Spring */}
+                <div className="spring-pin"></div>
+
+                <div className="spring-flex-container">
+                  <div className="spring-content">
+                    <h3 className="step-name">{service.title}</h3>
+                    <p className="step-text">{service.description}</p>
+                    <div className="step-watermark-bg">{service.number}</div>
+                  </div>
+                  
+                  <div className="spring-image-box">
+                    <div className="image-reveal-wrapper">
+                      <img src={service.image} alt={service.title} />
+                      <div className="spring-image-overlay"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="spring-footer-journey">
+            <button className="final-journey-btn" onClick={() => window.open('https://wa.me/917990207778', '_blank')}>
+              <span className="btn-label">Begin Your Journey</span>
+              <div className="btn-line"></div>
+              <FaLongArrowAltRight className="btn-icon" />
+            </button>
+          </div>
         </div>
       </div>
     </section>

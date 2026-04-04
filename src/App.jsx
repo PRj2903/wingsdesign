@@ -10,15 +10,24 @@ import Footer from './components/Footer';
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [hideIntro, setHideIntro] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
-    // Reveal starts after the branding presentation (~2.8s)
-    const timer1 = setTimeout(() => setIsLoaded(true), 2800);
-    // Remove intro from DOM after panels fully clear (~4.2s)
-    const timer2 = setTimeout(() => setHideIntro(true), 4200);
+    // Reveal starts after the branding presentation (~3.5s)
+    const timer1 = setTimeout(() => setIsLoaded(true), 3500);
+    // Remove intro from DOM after panels fully clear (~5s)
+    const timer2 = setTimeout(() => setHideIntro(true), 5000);
 
     return () => {
       clearTimeout(timer1);
@@ -39,19 +48,20 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Elegant, Fluent SVG Line Tracing Intro */}
+      {/* Premium Glassmorphism Intro Sequence */}
       {!hideIntro && (
         <div className={`intro-master ${isLoaded ? 'fade-out' : ''}`}>
-          <div className="intro-panel left"></div>
-          <div className="intro-panel right"></div>
-          
-          <div className="intro-bg-text">WINGS DESIGN</div>
-          
-          <div className="intro-content">
-            <LogoIntro className="intro-wings-icon" />
-            <div className="intro-tagline">Architecture of Atmosphere</div>
-            <div className="intro-loading-bar">
-              <div className="intro-loading-progress"></div>
+          <div className="intro-glass-bg">
+            <img src="/hero.png" alt="Intro Parallax" className="intro-bg-parallax" />
+            <div className="intro-glass-overlay"></div>
+            <div className="intro-flare top-left"></div>
+            <div className="intro-flare bottom-right"></div>
+          </div>
+
+          <div className="intro-center-stage">
+            <h1 className="intro-bg-text-gold">WINGS DESIGN</h1>
+            <div className="intro-logo-wrapper">
+              <LogoIntro className="intro-wings-icon-large" />
             </div>
           </div>
         </div>
@@ -60,12 +70,20 @@ function App() {
       {/* Main Content (Revealed dynamically by wings) */}
       <div className={`main-content ${isLoaded ? 'visible' : ''}`}>
         
-        <nav className="navbar">
+        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+          <div className="navbar-left">
+            <LogoOfficial className="nav-fixed-logo" />
+          </div>
+
           <ul className="nav-links">
             <li><a href="#projects">Our Portfolio</a></li>
             <li><a href="#services">Specialization</a></li>
             <li><a href="#about">The Studio</a></li>
           </ul>
+
+          <div className="navbar-right">
+             {/* Spacing for balance / potential CTA */}
+          </div>
 
           
           {/* Mobile menu icon */}
@@ -94,14 +112,9 @@ function App() {
           </ul>
         </div>
 
-        {/* Premium Editorial Hero Section */}
+        {/* Premium Editorial Hero Section - Split Layout */}
         <section className="hero">
-          <div className="hero-bg-container">
-            <img src="/hero.png" alt="Wings Design Masterpiece" className="hero-bg-image" />
-            <div className="hero-bg-overlay"></div>
-          </div>
-
-          <div className="hero-content">
+          <div className="hero-left-sidebar">
             <div className="hero-content-inner">
               <LogoOfficial className="hero-highlight-logo" />
               <div className="hero-badge-row">
@@ -112,38 +125,45 @@ function App() {
 
               <h1 className="hero-display-title">
                 Architecture of <br/>
-                <span className="italic-gold">Atmosphere</span> & <br/>
-                Modern Living
+                <span className="italic-gold">Atmosphere</span><br/>
+                & Modern Living
               </h1>
 
               <p className="hero-editorial-desc">
                 Led by Heenaa Panchal, Wings Design Studio transforms residential and commercial spaces into timeless architectural masterpieces that prioritize both fluent utility and bespoke elegance.
               </p>
+
+              <div className="hero-cta-group">
+                <button className="hero-btn-primary" onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}>
+                  View Projects
+                </button>
+              </div>
+            </div>
+
+            {/* Bottom Info Bar - Minimalist Stats */}
+            <div className="hero-bottom-bar">
+              <div className="footer-stats-item">
+                <span className="stat-value">50+</span>
+                <span className="stat-label">Bespoke Projects</span>
+              </div>
+              <div className="footer-stats-item">
+                <span className="stat-value">100%</span>
+                <span className="stat-label">Turnkey Delivery</span>
+              </div>
+              <div className="footer-stats-item">
+                <span className="stat-value">10+</span>
+                <span className="stat-label">Years of Craft</span>
+              </div>
             </div>
           </div>
 
-          {/* Floating Experience Detail */}
-          <div className="hero-floating-detail">
-            <div className="detail-circle">
-              <span className="detail-num">10+</span>
-              <span className="detail-text">Years of <br/> Craft</span>
-            </div>
-          </div>
-
-          {/* Bottom Info Bar - Minimalist Stats */}
-          <div className="hero-bottom-bar">
-            <div className="footer-stats-item">
-              <span className="stat-value">50+</span>
-              <span className="stat-label">Bespoke Projects</span>
-            </div>
-            <div className="footer-stats-item">
-              <span className="stat-value">100%</span>
-              <span className="stat-label">Turnkey Delivery</span>
-            </div>
-            <div className="hero-scroll-indicator">
-              <span className="scroll-text">Scroll To Experience</span>
-              <div className="scroll-line"></div>
-            </div>
+          <div className="hero-right-sidebar">
+            {/* Original Architecture Masterpiece Image */}
+            <img 
+              src="/hero.png" 
+              alt="Wings Design Masterpiece" 
+              className="hero-split-image" 
+            />
           </div>
         </section>
 

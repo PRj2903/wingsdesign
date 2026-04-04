@@ -9,92 +9,101 @@ const About = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('reveal-active');
+            entry.target.classList.add('is-visible');
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.05 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="about-section" id="about" ref={sectionRef}>
-      {/* Background Texture Overlay */}
-      <div className="about-texture-overlay"></div>
+    <section className="about-premium-section" id="about" ref={sectionRef}>
+      <div className="about-premium-bg-text">STUDIO</div>
       
-      <div className="about-container">
-        
-        {/* Modern Broken Grid Layout */}
-        <div className="about-visuals-grid">
-          <div className="visual-card primary-portrait reveal-up">
-            <img src="/female.jpeg" alt="Heenaa Panchal" className="parallax-img" />
-            <div className="image-accent-border"></div>
+      <div className="about-premium-container">
+        {/* Left Content - Typography & Story */}
+        <div className="about-premium-content anim-slide-right">
+          <div className="about-premium-badge">
+            <span className="gold-line"></span>
+            <span className="badge-text">The Legacy of Wings</span>
           </div>
           
-          <div className="visual-card secondary-portrait reveal-down">
-            <img src="/male.jpeg" alt="Sanket Panchal" className="parallax-img" />
-            <div className="floating-trust-tag project-tag">
-              <span className="tag-num">50+</span>
-              <span className="tag-label">Projects<br/>Delivered</span>
-            </div>
-          </div>
-
-          <div className="visual-card experience-square reveal-left">
-            <div className="exp-content">
-              <span className="exp-year">2020</span>
-              <span className="exp-label">Serving Since</span>
-            </div>
-            <div className="exp-blur-bg"></div>
-          </div>
-        </div>
-
-        {/* Storytelling Side */}
-        <div className="about-content reveal-right">
-          <div className="story-header">
-            <span className="legacy-text">The Legacy of Wings</span>
-            <div className="gold-dash"></div>
-          </div>
-          
-          <h2 className="philosophy-title">
-            From sketching <span className="highlight-text">dream spaces</span> together <br/>
-            to shaping <span className="italic-text">luxury interiors.</span>
+          <h2 className="about-premium-title">
+            From sketching <span className="text-gold-light">dream spaces</span> together <br/>
+            to shaping <span className="text-italic-gold">luxury interiors.</span>
           </h2>
           
-          <div className="story-description">
-            <p>
-              Heenaa and Sanket Panchal turned their shared passion into Surat's most visionary design studio. 
-              Our journey is defined by more than just blueprints—it's about the soul of a home. 
-              We blend masculine structural precision with feminine stylistic grace to curate masterpieces 
-              deeply connected to the families who inhabit them.
-            </p>
+          <p className="about-premium-desc">
+            Heenaa and Sanket Panchal turned their shared passion into Surat's most visionary design studio. 
+            Blending masculine structural precision with feminine stylistic grace, we curate masterpieces deeply 
+            connected to the families who inhabit them.
+          </p>
+          
+          <div className="about-premium-quote">
+            <div className="quote-icon">"</div>
+            <p>Every home we build is a new chapter in someone's story, crafted with total comfort and breathtaking personalization.</p>
           </div>
-
-          <div className="about-quote-box-premium">
-            <div className="quote-mark">“</div>
-            <p className="quote-body">
-              True luxury is found at the intersection of total comfort and breathtaking personalization. 
-              Every home we build is a new chapter in someone’s story.
-            </p>
-          </div>
-
-          <div className="about-footer-stats">
-            <div className="mini-stat">
-              <h4>Visionary</h4>
-              <span>Design Approach</span>
+          
+          <div className="about-premium-stats">
+            <div className="stat-block">
+              <span className="stat-value">50+</span>
+              <span className="stat-label">Bespoke<br/>Projects</span>
             </div>
-            <div className="mini-stat">
-              <h4>Turnkey</h4>
-              <span>Full Execution</span>
+            <div className="stat-block">
+              <span className="stat-value">2020</span>
+              <span className="stat-label">Established<br/>In Surat</span>
             </div>
           </div>
         </div>
 
+        {/* Right Content - Elegant Image Grid */}
+        <div className="about-premium-gallery anim-slide-left">
+          
+          {/* Card 1 */}
+          <div className="premium-image-card card-heenaa">
+            <div className="art-frame-container">
+              <div className="frame-bracket-top-left"></div>
+              <div className="frame-bracket-bottom-right"></div>
+              
+              <div className="premium-image-wrapper">
+                <img src="/female.jpeg" alt="Heenaa Panchal" className="premium-img" />
+                <div className="premium-hover-overlay">
+                  <div className="hover-borders"></div>
+                </div>
+              </div>
+            </div>
+            
+            <div className="premium-card-footer">
+              <h3>Heenaa Panchal</h3>
+              <span>Principal Designer</span>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="premium-image-card card-sanket">
+             <div className="art-frame-container">
+              <div className="frame-bracket-top-left"></div>
+              <div className="frame-bracket-bottom-right"></div>
+
+              <div className="premium-image-wrapper">
+                <img src="/male.jpeg" alt="Sanket Panchal" className="premium-img" />
+                <div className="premium-hover-overlay">
+                  <div className="hover-borders"></div>
+                </div>
+              </div>
+            </div>
+
+            <div className="premium-card-footer">
+              <h3>Sanket Panchal</h3>
+              <span>Principal Architect</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
