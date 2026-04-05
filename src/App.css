@@ -8,7 +8,7 @@
   --primary-dark: #8A6B32; /* Deep Gold / Bronze for Main Text */
   --bg-color: #FFFFFF; /* Pure White */
   --bg-alt: #FFFFFF; /* Pure White */
-  --bg-light-gold: #FCF9F2; /* Soft warm light gold */
+  --bg-light-gold: #FFFFFF; /* Soft warm light gold */
   --bg-dark-gold: var(--primary-dark); /* Strict dark gold theme */
   --text-main: #8A6B32; /* Deep Gold for Headings/Text */
   --text-muted: #9B7E46; /* Slightly lighter deep gold for secondary text */
@@ -574,7 +574,7 @@ body, html {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(135deg, #FFFFFF 0%, #FAEFD6 100%); /* Gorgeous Light Gold Shade */
+  background: #ffffff; /* Primary White Background */
   z-index: 2000;
   display: flex;
   flex-direction: column;

@@ -14,7 +14,7 @@
 .portfolio-bg-layer {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 100% 0%, rgba(212, 175, 55, 0.03) 0%, transparent 60%);
+    background: #FFFFFF;
     z-index: -1;
 }
 
@@ -342,7 +342,7 @@
 .p-hero-fade {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(13, 10, 5, 0.8) 0%, transparent 60%);
+    background: linear-gradient(to top, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.4) 60%, transparent 100%);
     display: flex;
     align-items: flex-end;
     padding: 6rem;
@@ -363,7 +363,7 @@
 .p-modal-title {
     font-family: var(--font-serif);
     font-size: 5.5rem;
-    color: #fff;
+    color: var(--primary-dark);
     font-weight: 400;
     line-height: 1;
     margin-bottom: 3.5rem;
@@ -382,10 +382,10 @@
     display: flex;
     gap: 5rem;
     padding: 1.5rem 3rem;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(20px);
     border-radius: 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.1);
     margin-bottom: 2rem;
 }
 
@@ -400,13 +400,13 @@
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 3px;
-    color: rgba(255, 255, 255, 0.6);
+    color: var(--text-muted);
 }
 
 .hero-spec span {
     font-family: var(--font-serif);
     font-size: 1.4rem;
-    color: #fff;
+    color: var(--primary-dark);
     font-weight: 500;
 }
 
@@ -501,7 +501,7 @@
 .p-lightbox {
     position: fixed;
     inset: 0;
-    background: rgba(138, 107, 50,0.95);
+    background: #ffffff;
     z-index: 6000;
     display: flex;
     justify-content: center;
@@ -511,7 +511,7 @@
 .p-lightbox img {
     max-width: 90vw;
     max-height: 90vh;
-    box-shadow: 0 30px 60px rgba(138, 107, 50,0.5);
+    box-shadow: 0 30px 60px rgba(138, 107, 50, 0.15);
 }
 
 .lightbox-close {
@@ -535,7 +535,7 @@
     font-size: 0.8rem;
     letter-spacing: 3px;
     text-transform: uppercase;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.9);
     padding: 1rem 2rem;
     border-radius: 40px;
     backdrop-filter: blur(10px);

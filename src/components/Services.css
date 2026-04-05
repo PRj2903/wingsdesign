@@ -5,7 +5,7 @@
 
 .services-section {
     padding: 10rem 0;
-    background: radial-gradient(circle at 50% 50%, #fbf7ef 0%, #f4eee0 100%);
+    background: #FFFFFF;
     position: relative;
     overflow: hidden;
     z-index: 10;
@@ -22,7 +22,7 @@
 
 /* Elegant Header Container */
 .spring-header-container {
-    background: rgba(255, 255, 255, 0.4);
+    background: #ffffff;
     backdrop-filter: blur(10px);
     border: 1px solid rgba(212, 175, 55, 0.2);
     padding: 5rem 8rem;
