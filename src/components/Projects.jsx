@@ -264,6 +264,54 @@ const Projects = () => {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  // Touch Handlers for swipe
+  const touchStartX = useRef(null);
+  const touchStartY = useRef(null);
+  const touchEndX = useRef(null);
+  const touchEndY = useRef(null);
+  
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+    touchStartY.current = e.targetTouches[0].clientY;
+    touchEndX.current = null;
+    touchEndY.current = null;
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+    touchEndY.current = e.targetTouches[0].clientY;
+  };
+
+  const handleTouchEndMain = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distanceX = touchStartX.current - touchEndX.current;
+    const distanceY = touchStartY.current - (touchEndY.current || touchStartY.current);
+    
+    const isHorizontalSwipe = Math.abs(distanceX) > Math.abs(distanceY);
+    if (isHorizontalSwipe && distanceX > 50) animateSlideRef.current('next');
+    if (isHorizontalSwipe && distanceX < -50) animateSlideRef.current('prev');
+    
+    touchStartX.current = null;
+    touchStartY.current = null;
+    touchEndX.current = null;
+    touchEndY.current = null;
+  };
+
+  const handleTouchEndLightbox = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distanceX = touchStartX.current - touchEndX.current;
+    const distanceY = touchStartY.current - (touchEndY.current || touchStartY.current);
+    
+    const isHorizontalSwipe = Math.abs(distanceX) > Math.abs(distanceY);
+    if (isHorizontalSwipe && distanceX > 50) navigateLightbox('next');
+    if (isHorizontalSwipe && distanceX < -50) navigateLightbox('prev');
+    
+    touchStartX.current = null;
+    touchStartY.current = null;
+    touchEndX.current = null;
+    touchEndY.current = null;
+  };
+
   // ── JSX ──────────────────────────────────────────────────────────────────────
 
   const modalJSX = selectedProject && (
@@ -322,11 +370,17 @@ const Projects = () => {
   );
 
   const lightboxJSX = (selectedImageIndex !== null && selectedProject) && (
-    <div className="p-lightbox" onClick={() => setSelectedImageIndex(null)}>
+    <div 
+      className="p-lightbox" 
+      onClick={() => setSelectedImageIndex(null)}
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEndLightbox}
+    >
       <button className="lightbox-close"><FaTimes /></button>
       <img src={selectedProject.gallery[selectedImageIndex]} alt="Fullscreen View" onClick={(e) => e.stopPropagation()} />
       <div className="lightbox-nav-hint">
-        Use Left/Right Arrows to Navigate • {selectedImageIndex + 1} / {selectedProject.gallery.length}
+        Use Left/Right Arrows or Swipe to Navigate • {selectedImageIndex + 1} / {selectedProject.gallery.length}
       </div>
     </div>
   );
@@ -342,7 +396,12 @@ const Projects = () => {
             <h2 className="portfolio-title">Signature Masterpieces</h2>
           </header>
 
-          <div className="portfolio-main-display">
+          <div 
+            className="portfolio-main-display"
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEndMain}
+          >
             <div className="project-hero-visual" onClick={() => openProject(currentProject)}>
               <div className="visual-inner">
                 <img
