@@ -1,0 +1,151 @@
+.dada-intro {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.dada-panel {
+  position: absolute;
+  left: 0;
+  width: 100vw;
+  height: 50vh;
+  background: #ffffff; /* PURE WHITE */
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.dada-panel-top {
+  top: 0;
+}
+
+.dada-panel-bottom {
+  bottom: 0;
+}
+
+.dada-ambient-top {
+  bottom: 0;
+  background: radial-gradient(circle at bottom center, rgba(212, 175, 55, 0.12), transparent 50%);
+}
+
+.dada-ambient-bottom {
+  top: 0;
+  background: radial-gradient(circle at top center, rgba(212, 175, 55, 0.12), transparent 50%);
+}
+
+.dada-ambient {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.dada-content {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+}
+
+.dada-gold-line-wrap {
+  width: 80px;
+  height: 1px;
+  overflow: hidden;
+}
+
+@keyframes goldShine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.dada-gold-line {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    #A67C00 0%,
+    #D4AF37 35%,
+    #FFF5C3 50%,
+    #D4AF37 65%,
+    #A67C00 100%
+  );
+  background-size: 200% auto;
+  transform-origin: center;
+  animation: goldShine 3.5s linear infinite;
+}
+
+.dada-text-mask {
+  overflow: hidden;
+  padding: 8px 12px; 
+  margin: -8px -12px;
+}
+
+.dada-subtitle {
+  margin: 0;
+  font-family: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", serif;
+  font-size: clamp(14px, 1.8vw, 18px);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 400;
+  
+  /* True Shimmering Metallic Gold */
+  background: linear-gradient(
+    to right,
+    #A67C00 0%,
+    #D4AF37 30%,
+    #FCF6BA 50%,
+    #D4AF37 70%,
+    #A67C00 100%
+  );
+  background-size: 200% auto;
+  color: #D4AF37;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShine 3.5s linear infinite;
+}
+
+.dada-company-name {
+  margin: 0;
+  font-family: "Didot", "Bodoni MT", "Cinzel", "Playfair Display", serif;
+  font-size: clamp(38px, 6vw, 64px);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-weight: 400;
+  
+  /* True Shimmering Metallic Gold */
+  background: linear-gradient(
+    to right,
+    #A67C00 0%,
+    #D4AF37 35%,
+    #FFF5C3 50%,
+    #D4AF37 65%,
+    #A67C00 100%
+  );
+  background-size: 200% auto;
+  color: #D4AF37;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShine 3.5s linear infinite;
+  
+  /* Subtle luxurious radiance */
+  filter: drop-shadow(0px 2px 8px rgba(212, 175, 55, 0.35));
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .dada-subtitle {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+  }
+}

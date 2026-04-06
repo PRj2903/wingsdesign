@@ -40,7 +40,7 @@ const Footer = () => {
                         <h4 className="footer-title">Connect</h4>
                         <div className="footer-social-links">
                             <a 
-                                href="c:\Users\Pratham\AppData\Local\Packages\5319275A.WhatsAppDesktop_cv1g1gvanyjgm\LocalState\sessions\489804F612D23338E5E51703C14E089CAAE4CCB1\transfers\2026-13\WhatsApp Image 2026-03-28 at 18.08.42.jpeg" 
+                                href="https://instagram.com" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="social-icon-btn"

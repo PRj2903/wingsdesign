@@ -377,10 +377,24 @@ const Projects = () => {
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEndLightbox}
     >
-      <button className="lightbox-close"><FaTimes /></button>
-      <img src={selectedProject.gallery[selectedImageIndex]} alt="Fullscreen View" onClick={(e) => e.stopPropagation()} />
+      <button className="lightbox-close" onClick={() => setSelectedImageIndex(null)}>
+        <FaTimes />
+      </button>
+
+      <button className="lightbox-nav prev" onClick={(e) => { e.stopPropagation(); navigateLightbox('prev'); }}>
+        <FaArrowLeft />
+      </button>
+
+      <div className="lightbox-image-container" onClick={(e) => e.stopPropagation()}>
+        <img src={selectedProject.gallery[selectedImageIndex]} alt="Fullscreen View" />
+      </div>
+
+      <button className="lightbox-nav next" onClick={(e) => { e.stopPropagation(); navigateLightbox('next'); }}>
+        <FaArrowRight />
+      </button>
+
       <div className="lightbox-nav-hint">
-        Use Left/Right Arrows or Swipe to Navigate • {selectedImageIndex + 1} / {selectedProject.gallery.length}
+        Use Arrows or Swipe to Navigate • {selectedImageIndex + 1} / {selectedProject.gallery.length}
       </div>
     </div>
   );

@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 
+import LuxuryIntro from './components/LuxuryIntro';
 import Projects from './components/Projects';
 import Services from './components/Services';
 import About from './components/About';
 import Footer from './components/Footer';
+import Navbar from './components/Navbar';
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -48,51 +50,13 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Premium Glassmorphism Intro Sequence */}
-      {!hideIntro && (
-        <div className={`intro-master ${isLoaded ? 'fade-out' : ''}`}>
-          <div className="intro-glass-bg">
-            <img src="/hero.png" alt="Intro Parallax" className="intro-bg-parallax" />
-            <div className="intro-glass-overlay"></div>
-            <div className="intro-flare top-left"></div>
-            <div className="intro-flare bottom-right"></div>
-          </div>
-
-          <div className="intro-center-stage">
-            <h1 className="intro-bg-text-gold">WINGS DESIGN</h1>
-            <div className="intro-logo-wrapper">
-              <LogoIntro className="intro-wings-icon-large" />
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Premium Cinematic Intro Sequence */}
+      <LuxuryIntro />
 
       {/* Main Content (Revealed dynamically by wings) */}
       <div className={`main-content ${isLoaded ? 'visible' : ''}`}>
         
-        <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-          <div className="navbar-left">
-            <LogoOfficial className="nav-fixed-logo" />
-          </div>
-
-          <ul className="nav-links">
-            <li><a href="#projects">Our Portfolio</a></li>
-            <li><a href="#services">Specialization</a></li>
-            <li><a href="#about">The Studio</a></li>
-          </ul>
-
-          <div className="navbar-right">
-             {/* Spacing for balance / potential CTA */}
-          </div>
-
-          
-          {/* Mobile menu icon */}
-          <div className="mobile-menu-icon" aria-label="Toggle Navigation" onClick={toggleMobileMenu}>
-            <svg width="30" height="30" viewBox="0 0 24 24" fill="none">
-              <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            </svg>
-          </div>
-        </nav>
+        <Navbar scrolled={scrolled} toggleMobileMenu={toggleMobileMenu} />
 
         {/* Premium Full-Screen Mobile Drawer */}
         <div className={`mobile-drawer ${isMobileMenuOpen ? 'is-open' : ''}`}>
@@ -166,6 +130,7 @@ function App() {
             />
           </div>
         </section>
+
 
         <Projects />
         <Services />

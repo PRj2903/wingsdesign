@@ -1,0 +1,190 @@
+/* Navbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2.2rem 5%;
+  background: rgba(255, 255, 255, 0.98);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1); 
+  box-shadow: 0 10px 40px rgba(212, 175, 55, 0.04);
+}
+
+.navbar.scrolled {
+  padding: 1rem 5%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02), 0 5px 15px rgba(212, 175, 55, 0.06);
+}
+
+.navbar-container {
+  max-width: 1600px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.nav-fixed-logo {
+  height: 48px; /* Slightly scaled up for the native logo proportion */
+  width: auto;
+  transition: all 0.4s ease;
+  mix-blend-mode: multiply; /* Ensures any light background perfectly melts into the white navbar */
+}
+
+.navbar.scrolled .nav-fixed-logo {
+  height: 36px;
+}
+
+.logo-text {
+  font-family: "Cormorant Garamond", "Didot", "Bodoni MT", serif;
+  font-size: 2.2rem; /* Scaled slightly to match Cormorant's natural smaller height */
+  font-weight: 500; /* Set to 500 to bring out the luxurious curves of Cormorant Garamond */
+  letter-spacing: 0.05em; 
+  transition: all 0.4s ease;
+  
+  /* Golden Metallic Shine directly copied to match the 2nd photo */
+  background: linear-gradient(
+    to right,
+    #9c7721 0%,
+    #D4AF37 30%,
+    #FCF6BA 50%,
+    #D4AF37 70%,
+    #9c7721 100%
+  );
+  background-size: 200% auto;
+  color: #D4AF37;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: goldShine 3.5s linear infinite;
+}
+
+@keyframes goldShine {
+  0% { background-position: 200% center; }
+  100% { background-position: 0% center; }
+}
+
+.navbar.scrolled .logo-text {
+  font-size: 1.4rem;
+}
+
+.navbar-links-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 3.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #4a423a;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: #D4AF37;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.nav-links li a:hover {
+  color: #D4AF37;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.mobile-menu-icon {
+  display: none;
+  cursor: pointer;
+  color: #c5a059;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.mobile-menu-icon:hover {
+  color: #D4AF37;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .nav-links {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .navbar-links-wrapper {
+    display: none; 
+  }
+  
+  .mobile-menu-icon {
+    display: block;
+  }
+  
+  .navbar {
+    padding: 1.2rem 5%;
+  }
+  
+  .navbar.scrolled {
+    padding: 0.8rem 5%;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+  }
+  
+  .navbar.scrolled .logo-text {
+    font-size: 1rem;
+  }
+  
+  .nav-fixed-logo {
+    height: 34px;
+  }
+  
+  .navbar.scrolled .nav-fixed-logo {
+    height: 30px;
+  }
+}
