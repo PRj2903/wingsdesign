@@ -351,7 +351,7 @@ const Projects = () => {
               {selectedProject.gallery.map((img, idx) => (
                 <div
                   key={idx}
-                  className={`p-gallery-item ${idx % 3 === 0 ? 'span-2' : ''}`}
+                  className="p-gallery-item"
                   onClick={() => setSelectedImageIndex(idx)}
                 >
                   <img src={img} alt={`${selectedProject.title} gallery ${idx}`} loading="lazy" />

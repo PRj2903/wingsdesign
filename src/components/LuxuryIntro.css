@@ -98,6 +98,7 @@
   letter-spacing: 0.4em;
   text-transform: uppercase;
   font-weight: 400;
+  text-align: center;
   
   /* True Shimmering Metallic Gold */
   background: linear-gradient(
@@ -111,6 +112,7 @@
   background-size: 200% auto;
   color: #D4AF37;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: goldShine 3.5s linear infinite;
 }
@@ -122,6 +124,7 @@
   letter-spacing: 0.25em;
   text-transform: uppercase;
   font-weight: 400;
+  text-align: center;
   
   /* True Shimmering Metallic Gold */
   background: linear-gradient(
@@ -135,6 +138,7 @@
   background-size: 200% auto;
   color: #D4AF37;
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   animation: goldShine 3.5s linear infinite;
   
@@ -147,5 +151,23 @@
   .dada-subtitle {
     font-size: 10px;
     letter-spacing: 0.28em;
+  }
+  .dada-company-name {
+    font-size: clamp(28px, 6vw, 42px);
+    letter-spacing: 0.15em;
+  }
+  .dada-gold-line-wrap {
+    width: 60px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dada-subtitle {
+    font-size: 8px;
+    letter-spacing: 0.2em;
+  }
+  .dada-company-name {
+    font-size: clamp(24px, 7vw, 36px);
+    letter-spacing: 0.1em;
   }
 }

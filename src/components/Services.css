@@ -251,7 +251,6 @@
 .final-journey-btn:hover .btn-label { letter-spacing: 18px; color: var(--primary); }
 .final-journey-btn:hover .btn-line { width: 250px; }
 
-/* Responsive Adjustments */
 @media (max-width: 1200px) {
     .spring-header-container { padding: 4rem 5rem; }
     .spring-main-title { font-size: 3.8rem; }
@@ -262,13 +261,26 @@
     .spring-header-container { padding: 3rem 2rem; border-radius: 0; border-left: none; border-right: none; }
     .spring-svg { left: 40px; transform: none; width: 120px; }
     .spring-pin { left: -40px; }
-    .spring-flex-container { flex-direction: column-reverse !important; padding-left: 100px; align-items: flex-start; gap: 4rem; }
-    .spring-step.left .spring-content, .spring-step.left .spring-content { text-align: left; }
+    .spring-flex-container { flex-direction: column-reverse !important; padding-left: 60px; align-items: flex-start; gap: 4rem; }
+    .spring-step.left .spring-content, .spring-step.right .spring-content { text-align: left; }
     .step-watermark-bg { font-size: 18rem; left: -1rem !important; right: auto !important; text-align: left !important; }
 }
 
+@media (max-width: 768px) {
+    .spring-flex-container { padding-left: 40px; gap: 3rem; }
+    .spring-svg { left: 20px; width: 80px; }
+    .spring-pin { left: -20px; width: 10px; height: 10px; }
+    .spring-image-box { width: 100%; }
+    .step-name { font-size: 2.2rem; }
+}
+
 @media (max-width: 480px) {
-    .spring-main-title { font-size: 2.8rem; }
+    .spring-main-title { font-size: 2.3rem; }
     .step-watermark-bg { font-size: 12rem; }
-    .spring-label { letter-spacing: 8px; }
+    .spring-label { letter-spacing: 6px; font-size: 0.7rem; }
+    .spring-flex-container { padding-left: 20px; }
+    .spring-svg { left: 10px; width: 60px; }
+    .spring-pin { left: -10px; }
+    .spring-steps { gap: 8rem; }
+    .spring-footer-journey { padding-top: 6rem; padding-bottom: 3rem; }
 }
