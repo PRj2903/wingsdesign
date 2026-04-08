@@ -42,6 +42,7 @@ const Projects = () => {
       area: "2,000 Sq. Ft.",
       year: "2025",
       description: "A meticulously crafted high-rise sanctuary that optimizes every architectural inch. This residence is defined by its seamless integration of bespoke materials and ambient lighting, creating a warm, editorial atmosphere for a modern family.",
+      longDescription: "Spanning 2,000 square feet, The Vyas was envisioned as an elevated escape from the bustling city. The spatial flow was completely re-architected to allow natural light to cascade through the primary living areas, highlighting custom woodwork and curated contemporary art. Every detail, from the concealed intelligent storage solutions to the handpicked furnishings, was deliberately chosen to balance striking visual appeal with genuine liveability, reflecting the unique lifestyle and preferences of the homeowners.",
       mainImage: "/project1/1.jpg.jpeg",
       gallery: [
         "/project1/2.jpg.jpeg",
@@ -64,6 +65,7 @@ const Projects = () => {
       area: "2,400 Sq. Ft.",
       year: "2024",
       description: "A beautifully curated residential space that blends modern design with functional elegance. The layout maximizes natural light, while bespoke interiors provide a luxurious yet comfortable atmosphere for the entire family.",
+      longDescription: "The Baghban Lifestyle 4BHK project required a delicate balance between open-plan grandeur and intimate family zones. By utilizing a sophisticated palette of neutral tones, rich wood textures, and refined metallic accents, we cultivated a sense of timeless elegance. The central living area serves as the heart of the home, featuring a custom-designed media wall that seamlessly blends into the architectural framework. High-end finishes and ambient lighting layers pull the entire design together into a cohesive, luxurious living experience.",
       mainImage: "/project2/7.jpeg",
       gallery: [
         "/project2/1.jpeg",
@@ -96,6 +98,7 @@ const Projects = () => {
       area: "2,800 Sq. Ft.",
       year: "2024",
       description: "An exclusive culinary atmosphere designed with ambient lighting, rich upholstery, and acoustically treated sculptural ceilings, creating an unforgettable and intimate dining experience.",
+      longDescription: "For Santvan Seron, the goal was to craft a commercial destination that felt profoundly immersive. We moved away from traditional layouts, instead sculpting a fluid environment defined by curved architectural features, moody ambient lighting layers, and plush, tactile seating. The design inherently guides patrons through a sensory journey, with carefully placed acoustic treatments disguised as art installations to ensure the atmosphere remains intimate and conversational even at full capacity.",
       mainImage: "/project3/1.jpeg",
       gallery: [
         "/project3/2.jpeg",
@@ -343,7 +346,7 @@ const Projects = () => {
               <div className="p-modal-long-desc">
                 <h4>About the Project</h4>
                 <p>{selectedProject.description}</p>
-                <p>Designed by the Principal Architects at Wings Design, this project reflects our commitment to creating spaces that are not just visually stunning but deeply personal. Our holistic approach ensures that architectural precision meets everyday comfort.</p>
+                <p>{selectedProject.longDescription}</p>
               </div>
             </div>
 
