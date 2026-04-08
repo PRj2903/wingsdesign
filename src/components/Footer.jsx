@@ -10,7 +10,7 @@ const Footer = () => {
     );
 
     return (
-        <footer className="footer-section">
+        <footer className="footer-section" id="contact">
             <div className="footer-container">
                 <div className="footer-grid">
                     {/* Brand Column */}

@@ -153,7 +153,6 @@
   display: flex;
   flex-direction: column;
   gap: 15px;
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .card-heenaa {
@@ -178,7 +177,6 @@
 .art-frame-container {
   position: relative;
   padding: 15px; /* Offset to leave space for the corner brackets */
-  transition: transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .frame-bracket-top-left,
@@ -187,7 +185,6 @@
   width: 35px;
   height: 35px;
   border: 1.5px solid #D4AF37; /* Clean golden wires */
-  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
   z-index: 1;
 }
 
@@ -207,67 +204,11 @@
   border-top: none;
 }
 
-/* --- Golden Frame Extension on Hover --- */
-.premium-image-card:hover .art-frame-container {
-  transform: scale(1.02); /* Very subtle lift */
-}
-
-.premium-image-card:hover .frame-bracket-top-left {
-  top: -10px;
-  left: -10px;
-  width: 55px;
-  height: 55px;
-  border-width: 2px;
-}
-
-.premium-image-card:hover .frame-bracket-bottom-right {
-  bottom: -10px;
-  right: -10px;
-  width: 55px;
-  height: 55px;
-  border-width: 2px;
-}
-
 /* --- Image Styling Inside Frame --- */
 .premium-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 1.5s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.5s ease;
-  filter: grayscale(80%) sepia(20%) contrast(1.1); /* Subtle vintage architecture feel */
-}
-
-/* Hover Effects */
-.premium-hover-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(212, 175, 55, 0.1);
-  opacity: 0;
-  transition: opacity 0.6s ease;
-  z-index: 2;
-}
-
-.hover-borders {
-  position: absolute;
-  inset: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.8);
-  transform: scale(0.9);
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.premium-image-wrapper:hover .premium-img {
-  transform: scale(1.08); /* Slow luxurious zoom */
-  filter: grayscale(0%) sepia(0%) brightness(1.05) contrast(1.05); /* Full color on hover */
-}
-
-.premium-image-wrapper:hover .premium-hover-overlay {
-  opacity: 1;
-}
-
-.premium-image-wrapper:hover .hover-borders {
-  transform: scale(1);
-  opacity: 1;
 }
 
 .premium-card-footer {

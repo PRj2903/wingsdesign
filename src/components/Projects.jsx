@@ -459,7 +459,7 @@ const Projects = () => {
                   <FaArrowLeft />
                 </button>
                 <div className="nav-progress-wrapper">
-                  <div className="progress-fill" ref={progressRef}></div>
+                  <div className="portfolio-progress-fill" ref={progressRef}></div>
                 </div>
                 <button className="nav-arrow next" onClick={() => animateSlideRef.current('next')} disabled={isAnimating}>
                   <FaArrowRight />

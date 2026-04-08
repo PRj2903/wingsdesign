@@ -71,9 +71,6 @@ const About = () => {
               
               <div className="premium-image-wrapper">
                 <img src="/female.jpeg" alt="Heenaa Panchal" className="premium-img" />
-                <div className="premium-hover-overlay">
-                  <div className="hover-borders"></div>
-                </div>
               </div>
             </div>
             
@@ -91,9 +88,6 @@ const About = () => {
 
               <div className="premium-image-wrapper">
                 <img src="/male.jpeg" alt="Sanket Panchal" className="premium-img" />
-                <div className="premium-hover-overlay">
-                  <div className="hover-borders"></div>
-                </div>
               </div>
             </div>
 
