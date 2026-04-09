@@ -33,7 +33,7 @@ const Footer = () => {
                             <li><a href="#projects">Our Portfolio</a></li>
                             <li><a href="#services">Specialization</a></li>
                             <li><a href="#about">The Studio</a></li>
-                            <li><a href="#contact">Consultation</a></li>
+                            <li><a href="https://wa.me/917990207778" target="_blank" rel="noopener noreferrer">Consultation</a></li>
                         </ul>
                     </div>
 
@@ -42,7 +42,7 @@ const Footer = () => {
                         <h4 className="footer-title">Connect</h4>
                         <div className="footer-social-links">
                             <a 
-                                href="https://instagram.com" 
+                                href="https://www.instagram.com/wings_design_by_heenaa_panchal?utm_source=qr&igsh=YWZ0d21qa3IybjBx" 
                                 target="_blank" 
                                 rel="noopener noreferrer" 
                                 className="social-icon-btn"
