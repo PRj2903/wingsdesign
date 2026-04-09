@@ -463,11 +463,10 @@ body, html {
 
 .hero {
   display: flex;
-  align-items: center; 
+  align-items: stretch; 
   justify-content: flex-start;
-  min-height: 100vh;
+  min-height: calc(100vh - 110px);
   position: relative;
-  overflow: hidden;
   background: var(--bg-color);
   padding: 0; /* Reset padding for full split */
 }
@@ -475,11 +474,11 @@ body, html {
 /* Left Side (50%) */
 .hero-left-sidebar {
   width: 50%;
-  height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 0; /* Handled by inner elements */
+  padding: 3rem 0 0 0; /* Handled by inner elements */
   background: #FFFFFF; /* Solid White */
   position: relative;
   z-index: 10;
@@ -528,7 +527,7 @@ body, html {
 /* Right Side (50%) Image */
 .hero-right-sidebar {
   width: 50%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   right: 0;
   top: 0;
@@ -616,7 +615,7 @@ body, html {
 
 .hero-display-title {
   font-family: var(--font-serif);
-  font-size: 6rem; /* Slightly larger */
+  font-size: clamp(3rem, 5vw, 6rem);
   line-height: 1;
   font-weight: 300;
   color: var(--text-main);
@@ -676,10 +675,10 @@ body, html {
 /* Bottom Bar - Stats Integrated into Left Panel */
 .hero-bottom-bar {
   width: 100%;
-  padding: 3rem 8%; /* Match left sidebar padding */
+  padding: 2rem 8%; /* Match left sidebar padding */
   display: flex;
   justify-content: flex-start;
-  gap: 3.5rem; /* Space between stats */
+  gap: 3rem; /* Space between stats */
   align-items: center;
   z-index: 10;
   background: transparent;
