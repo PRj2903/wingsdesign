@@ -8,6 +8,7 @@ import Services from './components/Services';
 import About from './components/About';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -152,6 +153,7 @@ function App() {
           </svg>
         </a>
       )}
+      <Analytics />
     </div>
   );
 }
