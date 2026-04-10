@@ -1,4 +1,4 @@
-import { FaInstagram, FaWhatsapp, FaLinkedinIn, FaFacebookF, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaTimes } from 'react-icons/fa';
+import { FaInstagram, FaWhatsapp, FaFacebookF, FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaTimes } from 'react-icons/fa';
 import './Footer.css';
 import React, { useState } from 'react';
 
@@ -59,15 +59,7 @@ const Footer = () => {
                             >
                                 <FaWhatsapp />
                             </a>
-                            <a 
-                                href="https://www.linkedin.com/in/heenaa-panchal-4139b422a/" 
-                                target="_blank" 
-                                rel="noopener noreferrer" 
-                                className="social-icon-btn"
-                                aria-label="LinkedIn"
-                            >
-                                <FaLinkedinIn />
-                            </a>
+
                             <a 
                                 href="#" 
                                 className="social-icon-btn"
